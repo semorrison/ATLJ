@@ -1,0 +1,204 @@
+\documentclass{article}
+\input{preamble}
+
+\title{Working notes}
+\author{Corey Jones, Scott Morrison, David Penneys}
+
+\begin{document}
+\maketitle
+
+
+We define a truncated tensor product $\boxtimes$ of ATLJ modules, which is the usual tensor product, modulo the relations that
+any closed diagram passes through a string, and
+the $2\pi$ rotation acts identically.
+
+Observe that if $V$ and $W$ are sub-ATLJ modules of a evaluable planar algebra $\cP_\bullet$, there is an ATLJ homomorphism $V \boxtimes W \to \cP_\bullet$, because the additional relations we impose in the truncated tensor product automatically hold in an evaluable planar algebra.
+
+We now aim to completely describe the decomposition of this truncated tensor product into irreducibles. To prepare for this, we need some discussion of lowest weight vectors in ATLJ modules.
+
+Suppose $\cV$ is some ATLJ module, and $W$ is the cut-down of $\cV_m$ by $f^{(m)}$.
+
+\begin{lem}
+When $\delta>2$, the lowest weight vectors in $\cV_m$ are the kernel of $\cL_m : W \to W$
+$$
+\cL_m = \mathfig{0.2}{LowestWeightTangle}.
+$$
+\end{lem}
+\begin{proof}
+First, it is clear that the lowest weight vectors are the kernel of $a$, where $$\mathfig{0.2}{LoweringOperator}.$$
+
+Certainly $\ker(a)\subset\ker(\cL_m)$.
+To show the other direction, we look at a basis of eigenvectors for $\cL_m$ acting on $W$ consisting of the new low weights, together with the annular consequences of previous low weights.  
+$$
+\mathfig{0.4}{PreviousLowWeightsInW}.
+$$
+By \nn{Ghosh-Jones Prop 5.3}, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
+\end{proof}
+
+
+
+We then define the two operators $\rho, \rho' : W_m \to W_m$ as
+$$
+\mathfig{0.3}{CutDownRotation}.
+$$
+
+
+\begin{lem}
+The lowest weight vectors with rotational eigenvalue $\omega$ in $\cV_m$ can alternatively be characterized as the solutions of 
+\begin{align*}
+\rho(v) & = \omega v \\
+\rho'(v) & = \omega^{-1} v
+\end{align*}
+in $W_m$.
+\end{lem}
+\begin{proof}
+First we expand the middle Jones-Wenzl idempotent in 
+$$
+\mathfig{0.3}{RhoRhoPrime}
+$$
+into a linear combination of Temperley-Lieb-Jones diagrams. 
+Only the identity diagram and the diagram
+$$
+\mathfig{0.2}{JonesProjection}
+$$
+contribute, and we obtain
+$
+\rho \circ \rho' = \id_{W_m} - [m-1]/[m] \cL_m
+$.
+If $v$ is a eigenvector with eigenvalue $\omega$, then $$\rho \circ \rho'(v)=v-[m-1]/[m] \cL_m (v),$$ so $\cL_m(v)=0$, and $v$ is uncappable.
+The converse is trivial.
+\end{proof}
+
+
+
+\begin{thm}
+Consider irreducible ATLJ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$.
+The truncated tensor product decomposes as $$V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2} \iso \bigoplus_{\substack{m \geq 0 \\ \omega^m = 1}} V^{m, \omega},$$ with low weight generators 
+$$
+X_{m, \omega} = \sum_{j=0}^{m-2}\sum_{i=1}^{m-2j} c^{m,\omega}_{j,i} T^m_{j,i}
+$$
+where 
+$$
+T_{j,i}^m 
+=
+\mathfig{0.4}{Tmji}
+$$
+and the $c^{m, \omega}_{j,i}$ are determined by the equations
+\begin{align*}
+\todo{}
+\end{align*}
+in the case that $m \leq n_1 + n_2$, and are determined by the equations
+\begin{align*}
+\todo{}
+\end{align*}
+in the case that $m > n_1 + n_2$.
+\end{thm}
+\begin{proof}
+We apply $\rho$ to $T^m_{j,i}$ and expand the lower Jones-Wenzl idempotent.
+$$
+\rho(T^m_{j,i})=
+\mathfig{0.2}{RhoTmji}
+$$
+Certainly the identity term contributes, and the only place we can put a cup on top is the top right.
+Because the top right cup will result in an extra strand passing around the bottom of the diagram, no matter where we put a cap along the bottom of the expansion of the Jones-Wenzl idempotent, the total number of strands around the bottom cannot decrease. Thus is the terms $T^m_{j',i'}$ which appear in $\rho(T^m_{j,i})$ can never have $j'<j$.
+
+In general there are four different places the cap could appear along the bottom edge of the Jones-Wenzl idempotent.
+$$\mathfig{0.3}{PositionsOfCaps}$$
+In many special cases, some of these places are not possible. We colour code the terms appearing in the expansion of $\rho(T^m_{j,i})$ according to the position of the cap they correspond to.
+
+When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on $i$.
+$$
+\rho(T^m_{0,i}) = 
+\begin{cases}
+T^m_{0,i+1}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,0}&\text{if $i=0$}
+\\
+T^m_{0,i+1}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,n_2-k}&\text{if $i=n_2-k$}
+\\
+T^m_{0,i+1}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i-1}
+&\text{if }0 < i <n_2-k
+\\
+T^m_{0,i+1}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i}
++\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i-1}
+&\text{if } n_2-k < i <m
+\end{cases}
+$$
+Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^[-1]$ times the coefficient of $T^m_{0,i}$.
+
+\todo{finish the rest, show there is a solution for each $\omega$}
+
+
+\end{proof}
+
+
+
+We’ll take a low weight $S$ with $2n$ strings on the top, with a 1-click rotational eigenvalue of  $\sigma$. 
+
+Define the elements $T_{j,i}$, which are a basis for the  $f_{2n+2}$ cut down of the weight $2n+2$ space in $V \boxtimes V$
+
+$$
+T_{j,i} = \mathfig{0.2}{Tij}
+$$
+
+For $\omega$ a $(2n+2)^{\text{th}}$ root of unity, let
+
+$$X_{\omega} = \sum_{j=0}^{n+1} \sum_{i=0}^{2n+2-2j} c^{\omega}_{j,i} T_{j,i}$$
+
+be the (unique up to scale) low weight vector in $(V \boxtimes V)_{2n+2}$ with eigenvalue $\omega$.
+
+Now suppose $S$ comes from an initial triple point, and we have *10 annular multiplicity sequence.
+
+\begin{lem}
+There is an ATLJ-module homomorphism $\mu: V\boxtimes V\rightarrow P$.
+\end{lem}
+
+Consequences:
+Notice $\mu(T_{j,i})=0$ for $j>1$, because $P$ is $(n-1)$-supertransitive. 
+ By $*10$ assumption, $\mu(X_{\omega})=0$.
+If $S^{2}= r S + TLJ$, then $\mu(T_{1,i})=r \sigma^{i}$ (box 1-strand jellyfish).
+
+From formula for $c^{\omega}_{j,i},\ c_{0,i}=\omega^{i} c^{\omega}_{0,0}$, and we can pick $c^{\omega}_{0,0} = 1$.
+
+$\sum_{\omega} \mu(X_{\omega})=0$.
+We could worry about the diagrams $\mu(T_{0,i})$, but these appear in $\mu(X_{\omega})$ with coefficient $c_{0,i}=\omega^{i}$.
+
+
+Note, that for $i \neq 0 \pmod{2n+2}$, $\sum_{\omega} \omega^{i}=0$.
+
+\begin{align*}
+0 & = \sum_{\omega} \mu(X_{\omega}) \\
+   & = \sum_{\omega, i} c^{\omega}_{0,i} \mu(T_{0,i}) + c^{\omega}_{1,i} \mu(T_{1,i}) \\
+   & = \sum_i \left( \left(\sum_\omega \omega^i\right) \mu(T_{0,i}) + \sum_\omega c^{\omega}_{1,i} \mu(T_{1,i})\right) \\
+   & = (2n+2) \mu(T_{0,0}) + r \left(\sum_i \left(\sum_\omega c^{\omega}_{1,i}\right) \sigma^{i}\right) (box 1-strand jellyfish)
+\end{align*}
+
+The upshot is that we have an equation:
+$$
+\mathfig{0.2}{QuadraticEqn.jpg}
+$$
+
+Step 1: Let’s assume there’s some constant $Q$ for the (?) above, and calculate a formula in terms of $Q$. 
+\begin{itemize}
+\item
+Let’s expand the $(2n+2)$-strand JW, but not all the way, and equate coefficients of certain diagrams.
+\item
+We’re interested in calculating the coefficients on both sides of the following diagram:
+$$
+\mathfig{0.12}{SCupTopLeft.jpg}
+$$
+\item
+On the left hand side, there’s only 2 diagrams we need the coefficients for:
+$$
+\mathfig{0.2}{JWCupTopLeft.jpg}
+$$
+The first is $-[2n+1]/[2n+2]$ and the second $(-1)^{2n+1}/[2n+2]$
+
+\end{itemize}
+
+
+\todo{look at the alternating sum $\sum_{k=0}^{2n+1} (-1)^{k} \mu(X_{\zeta^{k}})$, where $\zeta = \exp(2\pi i / 2n+2)$}
+\end{document}
