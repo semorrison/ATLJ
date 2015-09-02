@@ -4,6 +4,7 @@
 \title{Working notes}
 \author{Corey Jones, Scott Morrison, David Penneys}
 
+
 \begin{document}
 \maketitle
 
@@ -14,12 +15,19 @@ the $2\pi$ rotation acts identically.
 
 Observe that if $V$ and $W$ are sub-ATLJ modules of a evaluable planar algebra $\cP_\bullet$, there is an ATLJ homomorphism $V \boxtimes W \to \cP_\bullet$, because the additional relations we impose in the truncated tensor product automatically hold in an evaluable planar algebra.
 
-We now aim to completely describe the decomposition of this truncated tensor product into irreducibles. To prepare for this, we need some discussion of lowest weight vectors in ATLJ modules.
+We now aim to completely describe the decomposition of this truncated tensor product into irreducibles. 
+To prepare for this, we need some discussion of lowest weight vectors in ATLJ modules.
 
-Suppose $\cV$ is some ATLJ module, and $W$ is the cut-down of $\cV_m$ by $f^{(m)}$.
+Recall the isomorphism classes of minimal idempotents in the Temperley-Lieb-Jones algebra are the Jones-Wenzl idempotents $f^{(n)}$. 
+It is convenient to pass to the idempotent completion, and consider the TLJ algebra as a semisimple category with simple objects $f^{(n)}$. 
+The annular Temperley-Lieb-Jones category contains as a full subcategory the category with objects \nn{circle with one marked point, labelled by fn} which we call the tube category $\cT$. This inclusion is a Morita equivalence, giving an equivalence between $\Rep(ATLJ)$ and $\Rep(\cT)$. This is explained in \cite[Proposition 3.5]{Ghosh-Jones}.
+
+\nn{Some remarks about what irreps of $\cT$ look like, and that there's only one annular consequence of the generator in each higher weight space.}
+
+Suppose $\cV$ is some $\cT$ module.
 
 \begin{lem}
-When $\delta>2$, the lowest weight vectors in $\cV_m$ are the kernel of $\cL_m : W \to W$
+When $\delta>2$, the lowest weight vectors in $\cV_m$ are the kernel of $\cL_m : \cV_m \to \cV_m$
 $$
 \cL_m = \mathfig{0.2}{LowestWeightTangle}.
 $$
@@ -28,16 +36,16 @@ $$
 First, it is clear that the lowest weight vectors are the kernel of $a$, where $$\mathfig{0.2}{LoweringOperator}.$$
 
 Certainly $\ker(a)\subset\ker(\cL_m)$.
-To show the other direction, we look at a basis of eigenvectors for $\cL_m$ acting on $W$ consisting of the new low weights, together with the annular consequences of previous low weights.  
+To show the other direction, we look at a basis of eigenvectors for $\cL_m$ acting on $\cV_m$ consisting of the new low weights, together with the annular consequences of previous low weights.  
 $$
 \mathfig{0.4}{PreviousLowWeightsInW}.
 $$
-By \nn{Ghosh-Jones Prop 5.3}, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
+By \nn{Ghosh-Jones Prop 5.3}, as long as $\delta > 2$, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
 \end{proof}
 
+$$\text{if $x>0$}$$
 
-
-We then define the two operators $\rho, \rho' : W_m \to W_m$ as
+We then define the two operators $\rho, \rho' : \cV_m \to \cV_m$ as
 $$
 \mathfig{0.3}{CutDownRotation}.
 $$
@@ -47,9 +55,8 @@ $$
 The lowest weight vectors with rotational eigenvalue $\omega$ in $\cV_m$ can alternatively be characterized as the solutions of 
 \begin{align*}
 \rho(v) & = \omega v \\
-\rho'(v) & = \omega^{-1} v
+\rho'(v) & = \omega^{-1} v.
 \end{align*}
-in $W_m$.
 \end{lem}
 \begin{proof}
 First we expand the middle Jones-Wenzl idempotent in 
@@ -70,10 +77,28 @@ The converse is trivial.
 \end{proof}
 
 
+\begin{lem}
+Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, and let $U=V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}$.
+Let $W_m$ be the space of uncappable vectors in $U_m$.
+Then $\dim(W_m)=m$.
+\end{lem}
+\begin{proof}
+We'll compute by induction that $\dim(W_m)=\dim(U_m)-\dim(\gA_m(U_{m-1}))=m$, where $\gA_m(S)$ is the space of $\cT$-annular consequences of $S$ in $U_m$.
+
+A basis for $U_m$ is given by $\set{T^m_{i,j}}{j=0,\dots,\frac{m-2}{2}\text{ and }i=1,\dots,m-2j}$
+$$
+T_{j,i}^m 
+=
+\mathfig{0.4}{Tmji}
+$$
+Recall that $\dim(U_m)=$
+\end{proof}
 
 \begin{thm}
-Consider irreducible ATLJ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$.
-The truncated tensor product decomposes as $$V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2} \iso \bigoplus_{\substack{m \geq 0 \\ \omega^m = 1}} V^{m, \omega},$$ with low weight generators 
+Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$.
+The truncated tensor product decomposes as
+$$V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2} \iso \bigoplus_{\substack{m \geq 0 \\ \omega^m = 1}} V^{m, \omega},$$
+with low weight generators 
 $$
 X_{m, \omega} = \sum_{j=0}^{m-2}\sum_{i=1}^{m-2j} c^{m,\omega}_{j,i} T^m_{j,i}
 $$
@@ -100,7 +125,8 @@ $$
 \mathfig{0.2}{RhoTmji}
 $$
 Certainly the identity term contributes, and the only place we can put a cup on top is the top right.
-Because the top right cup will result in an extra strand passing around the bottom of the diagram, no matter where we put a cap along the bottom of the expansion of the Jones-Wenzl idempotent, the total number of strands around the bottom cannot decrease. Thus is the terms $T^m_{j',i'}$ which appear in $\rho(T^m_{j,i})$ can never have $j'<j$.
+Because the top right cup will result in an extra strand passing around the bottom of the diagram, no matter where we put a cap along the bottom of the expansion of the Jones-Wenzl idempotent, the total number of strands around the bottom cannot decrease. 
+Thus is the terms $T^m_{j',i'}$ which appear in $\rho(T^m_{j,i}))))$ can never have $j'<j$.
 
 In general there are four different places the cap could appear along the bottom edge of the Jones-Wenzl idempotent.
 $$\mathfig{0.3}{PositionsOfCaps}$$
@@ -127,7 +153,7 @@ T^m_{0,i+1}
 &\text{if } n_2-k < i <m
 \end{cases}
 $$
-Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^[-1]$ times the coefficient of $T^m_{0,i}$.
+Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^{-1}$ times the coefficient of $T^m_{0,i}$.
 
 \todo{finish the rest, show there is a solution for each $\omega$}
 
