@@ -20,7 +20,7 @@ To prepare for this, we need some discussion of lowest weight vectors in ATLJ mo
 
 Recall the isomorphism classes of minimal idempotents in the Temperley-Lieb-Jones algebra are the Jones-Wenzl idempotents $f^{(n)}$. 
 It is convenient to pass to the idempotent completion, and consider the TLJ algebra as a semisimple category with simple objects $f^{(n)}$. 
-The annular Temperley-Lieb-Jones category contains as a full subcategory the category with objects \nn{circle with one marked point, labelled by fn} which we call the tube category $\cT$. This inclusion is a Morita equivalence, giving an equivalence between $\Rep(ATLJ)$ and $\Rep(\cT)$. This is explained in \cite[Proposition 3.5]{Ghosh-Jones}.
+The annular Temperley-Lieb-Jones category contains as a full subcategory the category with objects \nn{circle with one marked point, labelled by fn} which we call the tube category $\cT$. This inclusion is a Morita equivalence, giving an equivalence between $\Rep(ATLJ)$ and $\Rep(\cT)$. This is explained in \cite[Proposition 3.5]{1502.06543}.
 
 \nn{Some remarks about what irreps of $\cT$ look like, and that there's only one annular consequence of the generator in each higher weight space.}
 
@@ -40,7 +40,7 @@ To show the other direction, we look at a basis of eigenvectors for $\cL_m$ acti
 $$
 \mathfig{0.4}{PreviousLowWeightsInW}.
 $$
-By \nn{Ghosh-Jones Prop 5.3}, as long as $\delta > 2$, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
+By \cite[Proposition 5.3]{1502.06543}, as long as $\delta > 2$, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
 \end{proof}
 
 $$\text{if $x>0$}$$
@@ -76,39 +76,68 @@ If $v$ is a eigenvector with eigenvalue $\omega$, then $$\rho \circ \rho'(v)=v-[
 The converse is trivial.
 \end{proof}
 
+\begin{defn}
+Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$. Fix $m\geq 0$ such that $n_1+n_2+m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ 
+\begin{align*}
+T^{+}_{j,i} & = & \text{for $0 \leq i < n_2 - k$} \\
+T^{-}_{j,i} & = & \text{for $0 \leq i < n_1 - k$}
+\end{align*}
+where $k = \nn{}$.
+\end{defn}
 
 \begin{lem}
 Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, and let $U=V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}$.
 Let $W_m$ be the space of uncappable vectors in $U_m$.
-Then $\dim(W_m)=m$.
+Then $$\dim(W_m)=\begin{cases} m & \text{if $n_1 + n_2 + m = 0 \pmod 2$, and} \\ 0 & \text{otherwise.}\end{cases}$$
 \end{lem}
 \begin{proof}
-We'll compute by induction that $\dim(W_m)=\dim(U_m)-\dim(\gA_m(U_{m-1}))=m$, where $\gA_m(S)$ is the space of $\cT$-annular consequences of $S$ in $U_m$.
+Let $\gA_m(S)$ be the space of $\cT$-annular consequences of $S$ in $U_m$.
 
-A basis for $U_m$ is given by $\set{T^m_{i,j}}{j=0,\dots,\frac{m-2}{2}\text{ and }i=1,\dots,m-2j}$
-$$
+Assume for now that $n_1 = n_2 \pmod 2$, and that $m$ is even. \nn{The other case is similar.}
+A basis for $U_m$ is given by $\{T^m_{i,j}\}$ for $0 \leq j \leq \frac{m-2}{2}$ and $1 \leq i \leq m-2j$, where
+\begin{equation}
+\label{eq:Tji}
 T_{j,i}^m 
 =
 \mathfig{0.4}{Tmji}
+\end{equation}
+It's now straightforward that $\dim(U_m)=m+\dim(U_{m-2})$, since
 $$
-Recall that $\dim(U_m)=$
+U_{m}
+=
+\gA_m(W_0)\oplus\cdots\oplus \gA_m(W_{m-2})\oplus W_m 
+= 
+\gA_m(U_{m-2})\oplus W_m
+$$
+Note that $U_{2}=W_{2}$ since $W_{0}$ is the ``trivial'' representation. 
+By induction on $m$, it suffices to show that $\dim(W_{2})=2$.  
+This follows from direct computation.
 \end{proof}
 
 \begin{thm}
 Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$.
 The truncated tensor product decomposes as
-$$V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2} \iso \bigoplus_{\substack{m \geq 0 \\ \omega^m = 1}} V^{m, \omega},$$
+$$
+V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2} 
+\iso 
+\bigoplus_{\substack{m \geq 0 \\ \omega^m = 1}} V^{m, \omega},
+$$
 with low weight generators 
+\nn{parity for $n_1$ and $n_2$ is same in what follows.}
 $$
-X_{m, \omega} = \sum_{j=0}^{m-2}\sum_{i=1}^{m-2j} c^{m,\omega}_{j,i} T^m_{j,i}
+X_{m, \omega} 
+= 
+\sum_{j=0}^{\frac{m-2}{2}}
+\left(
+\sum_{i=0}^{n_2-k_j-1} 
+c^{+,\omega}_{j,i} T^+_{j,i}
++
+\sum_{i=0}^{n_1-k_j-1} 
+c^{-,\omega}_{j,i} T^-_{j,i}
+\right)
 $$
-where 
-$$
-T_{j,i}^m 
-=
-\mathfig{0.4}{Tmji}
-$$
-and the $c^{m, \omega}_{j,i}$ are determined by the equations
+where
+$k_j = \frac{n_1+n_2+2j-m}{2}$, $T_{j,i}^\pm$ is as defined in Equation \eqref{eq:Tji}, and the $c^{m, \omega}_{j,i}$ are determined by the equations
 \begin{align*}
 \todo{}
 \end{align*}
@@ -126,43 +155,88 @@ $$
 $$
 Certainly the identity term contributes, and the only place we can put a cup on top is the top right.
 Because the top right cup will result in an extra strand passing around the bottom of the diagram, no matter where we put a cap along the bottom of the expansion of the Jones-Wenzl idempotent, the total number of strands around the bottom cannot decrease. 
-Thus is the terms $T^m_{j',i'}$ which appear in $\rho(T^m_{j,i}))))$ can never have $j'<j$.
+Thus is the terms $T^m_{j',i'}$ which appear in $\rho(T^m_{j,i}))$ can never have $j'<j$.
 
 In general there are four different places the cap could appear along the bottom edge of the Jones-Wenzl idempotent.
-$$\mathfig{0.3}{PositionsOfCaps}$$
+$$
+\mathfig{0.3}{PositionsOfCaps}
+\nn{purple, orange, green, red}
+$$
 In many special cases, some of these places are not possible. We colour code the terms appearing in the expansion of $\rho(T^m_{j,i})$ according to the position of the cap they correspond to.
+A \textcolor{purple}{purple} term corresponds to a cap whose left endpoint attaches  the bundle of $j$ strings at the left \nn{}
 
+We use the convention that $n_+ = n_2$ and $n_-=n_1$.
 When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on $i$.
 $$
-\rho(T^m_{0,i}) = 
+\rho(T^\pm_{0,i}) = 
 \begin{cases}
-T^m_{0,i+1}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,0}&\text{if $i=0$}
+T^\pm_{0,1}
++\textcolor{DarkGreen}{(-1)^{m-n_{1}+k}[n_1-k]/[m]} T^\pm_{1,0}&\text{if $i=0$}
 \\
-T^m_{0,i+1}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,n_2-k}&\text{if $i=n_2-k$}
+%T^m_{0,n_2-k+1}
+%+\textcolor{cyan}{(-1)^{m-n_{2}+k}[n_2-k]/[m] \sigma^{-1}_{1}\sigma_{2}} T^m_{1,n_2-k}&\text{if $i=n_2-k$}
+%\\
+T^\pm_{0,i+1}
++\textcolor{DarkGreen}{(-1)^{m-n_{1}+k-i}[i+n_1-k]/[m]} T^\pm_{1,i}
++\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^\pm_{1,i-1}
+&\text{if }0 < i <n_\pm-k-1
 \\
-T^m_{0,i+1}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i-1}
-&\text{if }0 < i <n_2-k
+T^\pm_{0,i+1}
++\textcolor{DarkGreen}{(-1)^{m-n_{1}+k-i}[i+n_1-k]/[m]} T^\mp_{1,i}
++\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^m_{1,i-1}
+&\text{if } i = n_\pm-k-1
 \\
-T^m_{0,i+1}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i}
-+\coeff_{\in f^{(m)}}\left(\todo{diagram} \right) T^m_{1,i-1}
-&\text{if } n_2-k < i <m
+%T^m_{0,i+1}
+%+\textcolor{DarkGreen}{coeff}  T^m_{1,i}
+%+\textcolor{orange}{coeff} T^m_{1,i-1}
+%+\textcolor{cyan}{coeff} T^m_{1,i-2}
+%&\text{if } n_2-k < i <m
 \end{cases}
 $$
 Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^{-1}$ times the coefficient of $T^m_{0,i}$.
 
-\todo{finish the rest, show there is a solution for each $\omega$}
+When $j>0$, there are 
+\todo{fix below here...}
+either 3 or 4 places for a cap on the bottom, depending on $i$.
+$$
+\rho(T^m_{j,i}) = 
+\begin{cases}
+T^m_{j,i+1}
++\textcolor{purple}{coeff} T^m_{j,i-1}
++\textcolor{DarkGreen}{coeff} T^m_{j+1,i}
++\textcolor{red}{coeff} T^m_{j,i+1}
+&\text{if $i=0$}
+\\
+T^m_{j,i+1}
++\textcolor{purple}{coeff} T^m_{j,i-1}
++\textcolor{orange}{coeff} T^m_{j+1,i}
++\textcolor{red}{coeff} T^m_{j,i+1}
+&\text{if $i=n_2-k$}
+\\
+T^m_{j,i+1}
++\textcolor{purple}{coeff} T^m_{j,i-1}
++\textcolor{orange}{coeff} T^m_{j+1,?}
++\textcolor{DarkGreen}{coeff} T^m_{j+1,i}
++\textcolor{red}{coeff} T^m_{j,i+1}
+&\text{if }0 < i <n_2-k
+\\
+T^m_{j,i+1}
++\textcolor{purple}{coeff} T^m_{j,i-1}
++\textcolor{orange}{coeff} T^m_{j+1,?}
++\textcolor{DarkGreen}{coeff} T^m_{j+1,?}
++\textcolor{red}{coeff} T^m_{j,i+1}
+&\text{if } n_2-k < i <m
+\end{cases}
+$$
+
+\todo{show there is a solution for each $\omega$}
 
 
 \end{proof}
 
 
 
-We’ll take a low weight $S$ with $2n$ strings on the top, with a 1-click rotational eigenvalue of  $\sigma$. 
+We'll take a low weight $S$ with $2n$ strings on the top, with a 1-click rotational eigenvalue of  $\sigma$. 
 
 Define the elements $T_{j,i}$, which are a basis for the  $f_{2n+2}$ cut down of the weight $2n+2$ space in $V \boxtimes V$
 
@@ -227,4 +301,9 @@ The first is $-[2n+1]/[2n+2]$ and the second $(-1)^{2n+1}/[2n+2]$
 
 
 \todo{look at the alternating sum $\sum_{k=0}^{2n+1} (-1)^{k} \mu(X_{\zeta^{k}})$, where $\zeta = \exp(2\pi i / 2n+2)$}
+
+\renewcommand*{\bibfont}{\small}
+\setlength{\bibitemsep}{0pt}
+\raggedright
+\printbibliography
 \end{document}

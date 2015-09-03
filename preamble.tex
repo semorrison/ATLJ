@@ -17,6 +17,9 @@
 \input xy
 \xyoption{all}
 
+\usepackage{libertine}
+\usepackage[T1]{fontenc}
+
 \usepackage[backend=bibtex8,style=alphabetic,doi=false,isbn=false,url=false,minnames=6,maxnames=6]{biblatex}
 \setcounter{biburlnumpenalty}{9000}
 \setcounter{biburllcpenalty}{1000}
@@ -33,7 +36,7 @@
   \printfield{eid}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 
-\addbibresource{../../bibliography/bibliography.bib}
+\addbibresource{bibliography.bib}
 
 \usepackage{xifthen}  % http://ctan.org/pkg/xifthen
 \usepackage{breqn}
