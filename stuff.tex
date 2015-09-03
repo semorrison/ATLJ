@@ -79,11 +79,15 @@ The converse is trivial.
 \begin{defn}
 Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$. Fix $m\geq 0$ such that $n_1+n_2+m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ 
 \begin{align*}
-T^{+}_{j,i} & = & \text{for $0 \leq i < n_2 - k$} \\
-T^{-}_{j,i} & = & \text{for $0 \leq i < n_1 - k$}
+T^{+}_{j,i} & = \mathfig{0.4}{T+ji} & \text{for $0 \leq i < n_2 - k$} \\
+T^{-}_{j,i} & = \mathfig{0.4}{T-ji} & \text{for $0 \leq i < n_1 - k$}
 \end{align*}
 where $k = \nn{}$.
 \end{defn}
+
+\begin{fact}
+A basis for $\left(V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}\right)_m$ is given by $\{T^m_{i,j}\}$ for $0 \leq j \leq \frac{m-2}{2}$ and $1 \leq i \leq m-2j$
+\end{fact}
 
 \begin{lem}
 Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, and let $U=V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}$.
@@ -94,13 +98,7 @@ Then $$\dim(W_m)=\begin{cases} m & \text{if $n_1 + n_2 + m = 0 \pmod 2$, and} \\
 Let $\gA_m(S)$ be the space of $\cT$-annular consequences of $S$ in $U_m$.
 
 Assume for now that $n_1 = n_2 \pmod 2$, and that $m$ is even. \nn{The other case is similar.}
-A basis for $U_m$ is given by $\{T^m_{i,j}\}$ for $0 \leq j \leq \frac{m-2}{2}$ and $1 \leq i \leq m-2j$, where
-\begin{equation}
-\label{eq:Tji}
-T_{j,i}^m 
-=
-\mathfig{0.4}{Tmji}
-\end{equation}
+We use the basis for $U_m$ described above, to count dimensions.
 It's now straightforward that $\dim(U_m)=m+\dim(U_{m-2})$, since
 $$
 U_{m}
@@ -165,7 +163,7 @@ $$
 In many special cases, some of these places are not possible. We colour code the terms appearing in the expansion of $\rho(T^m_{j,i})$ according to the position of the cap they correspond to.
 A \textcolor{purple}{purple} term corresponds to a cap whose left endpoint attaches  the bundle of $j$ strings at the left \nn{}
 
-We use the convention that $n_+ = n_2$ and $n_-=n_1$.
+We use the convention that $n_+ = n_2$ and $n_-=n_1$, and that $\sigma_+=\sigma_2$ and $\sigma_-=\sigma_1$.
 When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on $i$.
 $$
 \rho(T^\pm_{0,i}) = 
@@ -181,9 +179,9 @@ T^\pm_{0,i+1}
 +\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^\pm_{1,i-1}
 &\text{if }0 < i <n_\pm-k-1
 \\
-T^\pm_{0,i+1}
-+\textcolor{DarkGreen}{(-1)^{m-n_{1}+k-i}[i+n_1-k]/[m]} T^\mp_{1,i}
-+\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^m_{1,i-1}
+\textcolor{cyan}{\sigma_+^{} \sigma_-^{}} T^\mp_{0,i+1}
++\textcolor{DarkGreen}{coeff} T^\mp_{1,i}
++\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^\pm_{1,i-1}
 &\text{if } i = n_\pm-k-1
 \\
 %T^m_{0,i+1}
