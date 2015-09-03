@@ -1,5 +1,6 @@
 .bash_profile 
 .bashrc 
+.joe_state
 .forever/ 
 .sagemathcloud/ 
 .snapshots/ 
