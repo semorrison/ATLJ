@@ -77,16 +77,15 @@ The converse is trivial.
 \end{proof}
 
 \begin{defn}
-Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$. Fix $m\geq 0$ such that $n_1+n_2+m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ 
+Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$. Fix $m\geq 0$ such that $n_1+n_2+m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq i < n_\pm - k$ 
 \begin{align*}
-T^{+}_{j,i} & = \mathfig{0.4}{T+ji} & \text{for $0 \leq i < n_2 - k$} \\
-T^{-}_{j,i} & = \mathfig{0.4}{T-ji} & \text{for $0 \leq i < n_1 - k$}
+T^{\pm}_{j,i} & = \mathfig{0.2}{Tpmji}
 \end{align*}
-where $k = \nn{}$.
+where $k = (n_1 + n_2 - m + 2j)/2$.
 \end{defn}
 
 \begin{fact}
-A basis for $\left(V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}\right)_m$ is given by $\{T^m_{i,j}\}$ for $0 \leq j \leq \frac{m-2}{2}$ and $1 \leq i \leq m-2j$
+A basis for $\left(V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}\right)_m$ is given by $\{T^+_{i,j}\}$ for $0 \leq j \leq \frac{m-2}{2}$ and $1 \leq i \leq m-2j$
 \end{fact}
 
 \begin{lem}
@@ -163,67 +162,53 @@ $$
 In many special cases, some of these places are not possible. We colour code the terms appearing in the expansion of $\rho(T^m_{j,i})$ according to the position of the cap they correspond to.
 A \textcolor{purple}{purple} term corresponds to a cap whose left endpoint attaches  the bundle of $j$ strings at the left \nn{}
 
-We use the convention that $n_+ = n_2$ and $n_-=n_1$, and that $\sigma_+=\sigma_2$ and $\sigma_-=\sigma_1$.
+
 When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on $i$.
 $$
 \rho(T^\pm_{0,i}) = 
 \begin{cases}
 T^\pm_{0,1}
-+\textcolor{DarkGreen}{(-1)^{m-n_{1}+k}[n_1-k]/[m]} T^\pm_{1,0}&\text{if $i=0$}
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k}[n_\mp-k]/[m]} T^\pm_{1,0}&\text{if $i=0$}
 \\
-%T^m_{0,n_2-k+1}
-%+\textcolor{cyan}{(-1)^{m-n_{2}+k}[n_2-k]/[m] \sigma^{-1}_{1}\sigma_{2}} T^m_{1,n_2-k}&\text{if $i=n_2-k$}
-%\\
 T^\pm_{0,i+1}
-+\textcolor{DarkGreen}{(-1)^{m-n_{1}+k-i}[i+n_1-k]/[m]} T^\pm_{1,i}
-+\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^\pm_{1,i-1}
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k-i}[i+n_\mp-k]/[m]} T^\pm_{1,i}
++\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_\mp\sigma_\pm} T^\pm_{1,i-1}
 &\text{if }0 < i <n_\pm-k-1
 \\
-\textcolor{cyan}{\sigma_+^{} \sigma_-^{}} T^\mp_{0,i+1}
-+\textcolor{DarkGreen}{coeff} T^\mp_{1,i}
-+\textcolor{orange}{(-1)^{m-i}([i]/[m])\sigma^{-1}_{1}\sigma_{2}} T^\pm_{1,i-1}
+\textcolor{cyan}{\sigma_\pm^{n_\pm-k} \sigma_\mp^{k}} T^\mp_{0,0}
+-\textcolor{DarkGreen}{[m-1]/[m]\cdot \sigma_\pm^{n_\pm-k-1} \sigma_\mp^{k+1}} T^\mp_{1,0}
++\textcolor{orange}{(-1)^{m-i}([n_\pm-k-1]/[m])\sigma^{-1}_\mp\sigma_\pm } T^\pm_{1,i-1}
 &\text{if } i = n_\pm-k-1
-\\
-%T^m_{0,i+1}
-%+\textcolor{DarkGreen}{coeff}  T^m_{1,i}
-%+\textcolor{orange}{coeff} T^m_{1,i-1}
-%+\textcolor{cyan}{coeff} T^m_{1,i-2}
-%&\text{if } n_2-k < i <m
 \end{cases}
 $$
+
 Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^{-1}$ times the coefficient of $T^m_{0,i}$.
 
 When $j>0$, there are 
 \todo{fix below here...}
 either 3 or 4 places for a cap on the bottom, depending on $i$.
 $$
-\rho(T^m_{j,i}) = 
+\rho(T^\pm_{j,i}) = 
 \begin{cases}
-T^m_{j,i+1}
-+\textcolor{purple}{coeff} T^m_{j,i-1}
-+\textcolor{DarkGreen}{coeff} T^m_{j+1,i}
-+\textcolor{red}{coeff} T^m_{j,i+1}
+T^m_{?,?}
++\textcolor{purple}{coeff} T^m_{?,?}
++\textcolor{DarkGreen}{coeff} T^m_{?,?}
++\textcolor{red}{coeff} T^m_{?,?}
 &\text{if $i=0$}
-\\
-T^m_{j,i+1}
-+\textcolor{purple}{coeff} T^m_{j,i-1}
-+\textcolor{orange}{coeff} T^m_{j+1,i}
-+\textcolor{red}{coeff} T^m_{j,i+1}
-&\text{if $i=n_2-k$}
 \\
 T^m_{j,i+1}
 +\textcolor{purple}{coeff} T^m_{j,i-1}
 +\textcolor{orange}{coeff} T^m_{j+1,?}
 +\textcolor{DarkGreen}{coeff} T^m_{j+1,i}
 +\textcolor{red}{coeff} T^m_{j,i+1}
-&\text{if }0 < i <n_2-k
+&\text{if }0 < i <n_\pm-k-1
 \\
 T^m_{j,i+1}
 +\textcolor{purple}{coeff} T^m_{j,i-1}
 +\textcolor{orange}{coeff} T^m_{j+1,?}
 +\textcolor{DarkGreen}{coeff} T^m_{j+1,?}
 +\textcolor{red}{coeff} T^m_{j,i+1}
-&\text{if } n_2-k < i <m
+&\text{if } i =n_\pm-k-1
 \end{cases}
 $$
 
