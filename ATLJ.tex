@@ -77,27 +77,33 @@ The converse is trivial.
 \end{proof}
 
 \begin{defn}
-Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, with lowest weight generators $S_1$ and $S_2$. Fix $m\geq 0$ such that $n_1+n_2+m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq i < n_\pm - k$ 
+Consider irreducible $\cT$ modules $V^{n_+, \omega_+}$ and $V^{n_-, \omega_-}$, with lowest weight generators $S_+$ and $S_-$. (The use of $\pm$ as a label here has nothing to do with shadings; it's just convenient for our later formulas.) Fix $m\geq 0$ such that $n_+ + n_- + m = 0 \pmod 2$, and define for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq i < n_\pm - k_j$ 
 \begin{align}
 \label{eq:basis-elements}
 T^{\pm}_{j,i} & = \mathfig{0.2}{Tpmji}
 \end{align}
-where $k = (n_1 + n_2 - m + 2j)/2$.
+where $k_j = (n_+ + n_- - m + 2j)/2$.
+
+When $n_-<n_+$, and we connect $S_-$ completely to $S_+$, we have another sequence of elements:
+\begin{align}
+\label{eq:basis-elements-small}
+T^{\pm}_{j,i} & = \mathfig{0.2}{TjiSmall}
+\end{align}
 \end{defn}
 
 \begin{fact}
-A basis for $\left(V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}\right)_m$ is given by $\{T^\pm_{i,j}\}$ for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq i < (m + n_\pm -  n_\mp - 2j)/2$.
+A basis for $\left(V^{n_+, \omega_+} \boxtimes V^{n_-, \omega_-}\right)_m$ is given by $\{T^\pm_{i,j}\}$ for $0 \leq j \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq i < (m + n_\pm -  n_\mp - 2j)/2$.
 \end{fact}
 
 \begin{lem}
-Consider irreducible $\cT$ modules $V^{n_1, \omega_1}$ and $V^{n_2, \omega_2}$, and let $U=V^{n_1, \omega_1} \boxtimes V^{n_2, \omega_2}$.
+Consider irreducible $\cT$ modules $V^{n_+, \omega_+}$ and $V^{n_-, \omega_-}$, and let $U=V^{n_+, \omega_+} \boxtimes V^{n_-, \omega_-}$.
 Let $W_m$ be the space of uncappable vectors in $U_m$.
-Then $$\dim(W_m)=\begin{cases} m & \text{if $n_1 + n_2 + m = 0 \pmod 2$, and} \\ 0 & \text{otherwise.}\end{cases}$$
+Then $$\dim(W_m)=\begin{cases} m & \text{if $n_+ + n_- + m = 0 \pmod 2$, and} \\ 0 & \text{otherwise.}\end{cases}$$
 \end{lem}
 \begin{proof}
 Let $\gA_m(S)$ be the space of $\cT$-annular consequences of $S$ in $U_m$.
 
-Assume for now that $n_1 = n_2 \pmod 2$, and that $m$ is even. \nn{The other case is similar.}
+Assume for now that $n_+ = n_- \pmod 2$, and that $m$ is even. \nn{The other case is similar.}
 We use the basis for $U_m$ described above, to count dimensions.
 It's now straightforward that $\dim(U_m)=m+\dim(U_{m-2})$, since
 $$
@@ -160,10 +166,10 @@ A \textcolor{purple}{purple} term corresponds to a cap whose left endpoint attac
 
 \begin{lem}
 The coefficient of the following Temperley-Lieb diagram in the Jones-Wenzl idempotent $\jw{m}$ is given by
-$$
+\begin{align*}
 \underset{\in \jw{m}}{\coeff}
 \left(
-\begin{tikzpicture}[baseline = -.1cm, yscale=.5]
+\begin{tikzpicture}[baseline = -.1cm, yscale=-.5]
 	\draw (-.5,-.8)--(-.5,.8);
 	\draw (-.3,.8) arc (-180:0:.2cm);
 	\draw (-.3,-.8)--(.3,.8);
@@ -174,11 +180,106 @@ $$
 	\node at (.7,0) {{\scriptsize{$c$}}};
 \end{tikzpicture}
 \right)
-=
-(-1)^{b+1}\frac{[a+1][c+1]}{[m]}.
-$$
-(The coefficient is the same applying any $\bbZ/\bbZ 2$-symmetry.)
+& =
+(-1)^{b+1}\frac{[a+1][c+1]}{[m]}
+\end{align*}
+{and the coefficient is the same applying any $\bbZ/2\bbZ $-symmetry, and in particular}
+\begin{align*}
+\underset{\in \jw{m}}{\coeff}
+\left(
+\begin{tikzpicture}[baseline = -.1cm, yscale=-.5]
+	\draw (-.5,-.8)--(-.5,.8);
+	\draw (-.3,.8) arc (-180:0:.2cm);
+	\draw (-.3,-.8)--(.3,.8);
+	\draw (-.1,-.8) arc (180:0:.2cm);
+	\node at (-.7,0) {{\scriptsize{$a$}}};
+	\node at (-.2,0) {{\scriptsize{$b$}}};
+    \node at (.2,0) {$\phantom{c}$};
+\end{tikzpicture}
+\right)
+& =
+(-1)^{m-a+1}\frac{[a+1]}{[m]}.
+\end{align*}
 \end{lem}
+
+\begin{itemize}
+\item
+if you shift $\star$ counterclockwise by one strand, multiply by $\sigma_S$ and switch $\check{}\,$:
+$$
+\begin{tikzpicture}[baseline = 0cm]
+	\draw[thick, unshaded] (0,0) circle (1cm);
+	\draw (0,0)--(-10:1cm);
+	\draw (30:1cm) --(0,0); 
+	\draw (0,0)--(70:1cm);
+	\draw (110:1cm) --(0,0); 
+	\draw (0,0)--(150:1cm);
+	\draw (190:1cm) --(0,0); 
+	\draw (0,0)--(230:1cm);
+	\draw (310:1cm) --(0,0); 
+	\draw[thick, unshaded] (0,0) circle (.4cm);
+	\node at (90:.52) {$\star$};
+	\node at (0,-.6) {$\cdots$};
+	\node at (0,0) {$S$};
+	\node at (90:.88) {$\star$};
+\end{tikzpicture}
+=
+\sigma_S\,
+\begin{tikzpicture}[baseline = 0cm]
+	\draw[thick, unshaded] (0,0) circle (1cm);
+	\draw (0,0)--(-10:1cm);
+	\draw (30:1cm) --(0,0); 
+	\draw (0,0)--(70:1cm);
+	\draw (110:1cm) --(0,0); 
+	\draw (0,0)--(150:1cm);
+	\draw (190:1cm) --(0,0); 
+	\draw (0,0)--(230:1cm);
+	\draw (310:1cm) --(0,0); 
+	\draw[thick, unshaded] (0,0) circle (.4cm);
+	\node at (130:.52) {$\star$};
+	\node at (0,-.6) {$\cdots$};
+	\node at (0,0) {$\check{S}$};
+	\node at (90:.88) {$\star$};
+\end{tikzpicture}
+$$
+\item
+if you shift $\star$ clockwise by one strand, multiply by $\sigma_S^{-1}$ and switch $\check{}\,$:
+$$
+\begin{tikzpicture}[baseline = 0cm]
+	\draw[thick, unshaded] (0,0) circle (1cm);
+	\draw (0,0)--(-10:1cm);
+	\draw (30:1cm) --(0,0); 
+	\draw (0,0)--(70:1cm);
+	\draw (110:1cm) --(0,0); 
+	\draw (0,0)--(150:1cm);
+	\draw (190:1cm) --(0,0); 
+	\draw (0,0)--(230:1cm);
+	\draw (310:1cm) --(0,0); 
+	\draw[thick, unshaded] (0,0) circle (.4cm);
+	\node at (90:.52) {$\star$};
+	\node at (0,-.6) {$\cdots$};
+	\node at (0,0) {$S$};
+	\node at (90:.88) {$\star$};
+\end{tikzpicture}
+=
+\sigma_S^{-1}\,
+\begin{tikzpicture}[baseline = 0cm]
+	\draw[thick, unshaded] (0,0) circle (1cm);
+	\draw (0,0)--(-10:1cm);
+	\draw (30:1cm) --(0,0); 
+	\draw (0,0)--(70:1cm);
+	\draw (110:1cm) --(0,0); 
+	\draw (0,0)--(150:1cm);
+	\draw (190:1cm) --(0,0); 
+	\draw (0,0)--(230:1cm);
+	\draw (310:1cm) --(0,0); 
+	\draw[thick, unshaded] (0,0) circle (.4cm);
+	\node at (50:.52) {$\star$};
+	\node at (0,-.6) {$\cdots$};
+	\node at (0,0) {$\check{S}$};
+	\node at (90:.88) {$\star$};
+\end{tikzpicture}
+$$
+\end{itemize}
 
 
 When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on the value of $i$, and the identity term in the Jones-Wenzl idempotent also contributes.
@@ -186,17 +287,17 @@ $$
 \rho(T^\pm_{0,i}) = 
 \begin{cases}
 T^\pm_{0,1}
-+\textcolor{DarkGreen}{(-1)^{m-n_\mp+k}[n_\mp-k][m]^{-1}} T^\pm_{1,0}&\text{if $i=0$}
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k_0}[n_\mp-k_0][m]^{-1}} T^\pm_{1,0}&\text{if $i=0$}
 \\
 T^\pm_{0,i+1}
-+\textcolor{DarkGreen}{(-1)^{m-n_\mp+k-i}[i+n_\mp-k][m]^{-1}} T^\pm_{1,i} +
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k_0-i}[i+n_\mp-k_0][m]^{-1}} T^\pm_{1,i} +
 \\ \qquad + \textcolor{orange}{(-1)^{m-i} \sigma^{-1}_\mp\sigma_\pm [i][m]^{-1}} T^\pm_{1,i-1}
-&\text{if }0 < i <n_\pm-k-1
+&\text{if }0 < i <n_\pm-k_j-1
 \\
-\textcolor{cyan}{\sigma_\pm^{n_\pm-k} \sigma_\mp^{k}} T^\mp_{0,0}
-+\textcolor{DarkGreen}{-\sigma_\pm^{n_\pm-k-1} \sigma_\mp^{k+1} [m-1][m]^{-1} } T^\mp_{1,0} +
-\\ \qquad +\textcolor{orange}{(-1)^{m-(n_\pm-k-1)} \sigma^{-1}_\mp\sigma_\pm [n_\pm-k-1][m]^{-1} } T^\pm_{1,n_\pm-k-2}
-&\text{if } i = n_\pm-k-1
+\textcolor{red}{\sigma_\pm^{-k_0} \sigma_\mp^{k_0}} T^\mp_{0,0}
++\textcolor{DarkGreen}{-\sigma_\pm^{-k_1} \sigma_\mp^{k_1} [m-1][m]^{-1} } T^\mp_{1,0} +
+\\ \qquad +\textcolor{orange}{(-1)^{m-(n_\pm-k_0-1)} \sigma^{-1}_\mp\sigma_\pm [n_\pm-k_0-1][m]^{-1} } T^\pm_{1,n_\pm-k_0-2}
+&\text{if } i = n_\pm-k_0-1
 \end{cases}
 $$
 
@@ -208,24 +309,86 @@ either 3 or 4 places for a cap on the bottom, depending on $i$, and the identity
 $$
 \rho(T^\pm_{j,i}) = 
 \begin{cases}
-\textcolor{purple}{coeff\cdot \sigma_\pm^{-k}\sigma_\mp^{k} } T^\mp_{j,n_\mp-k-1}
+\textcolor{purple}{(-1)^{m-j}\cdot \sigma_\pm^{-k_j}\sigma_\mp^{k_j} [j][m]^{-1}} T^\mp_{j,n_\mp-k_j-1}
 +\textcolor{DarkGreen}{coeff} T^\pm_{?,?}
 +\textcolor{red}{coeff} T^\pm_{?,?}
 &\text{if $i=0$}
 \\
-\textcolor{purple}{coeff} T^\pm_{j,i-1}
-+\textcolor{orange}{coeff\cdot \sigma^{-1}_\mp\sigma_\pm} T^\pm_{j+1,i-1}
-+\textcolor{DarkGreen}{coeff} T^\pm_{?,?}
-+\textcolor{red}{coeff} T^\pm_{?,?}
-&\text{if }0 < i <n_\pm-k-1
+\textcolor{purple}{(-1)^{m-j}[j][m]^{-1}} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} \sigma^{-1}_\mp\sigma_\pm [i+j][m]^{-1} } T^\pm_{j+1,i-1}
+\\ \qquad
++\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j][m]^{-1}} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j][m]^{-1}} T^\pm_{j,i+1}
+&\text{if $0 < i <n_\pm-k_j-1$}
 \\
-\textcolor{purple}{coeff} T^\pm_{j,i-1}
+\textcolor{purple}{(-1)^{m-j}[j][m]^{-1}} T^\pm_{j,i-1}
 +\textcolor{orange}{coeff \cdot \sigma^{-1}_\mp\sigma_\pm} T^\pm_{j+1,i-1}
-+\textcolor{DarkGreen}{coeff} T^{?}_{?,?}
+\\ \qquad
++\textcolor{DarkGreen}{coeff \cdot\sigma_\pm^{-k_{j+1}}\sigma_\mp^{k_{j+1}} } T^{\mp}_{j+1,0}
 +\textcolor{red}{coeff} T^{?}_{?,?}
-&\text{if } i =n_\pm-k-1
+&\text{if  $i =n_\pm-k_j-1$}
 \end{cases}
 $$
+
+Generic formula:
+
+\begin{align*}
+\rho(T^\pm_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} \sigma^{-1}_\mp\sigma_\pm [i+j]/[m] } T^\pm_{j+1,i-1}
+\\ &\qquad
++\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} T^\pm_{j,i+1}
+\end{align*}
+
+\nn{
+Let's try and match up the special cases.
+The first case to look at is when $j=0$ and $i$ is generic.
+When $j=0$, the purple term vanishes.
+The first term looks like the red term. 
+the green terms match up.
+The orange terms match up.
+Great!
+\\
+\\
+Now we need to look at the non-generic $i$ case.
+The orange case matches.
+Let's look at the green case.
+Since $n_\pm-k_j-1$ is out of range for $j+1$ (it's important to remember that $k_j$ was defined in terms of $j$, not $j+1$!), we must interpret
+$$
+T^\pm_{j+1,n_\pm-k_j-1} = \sigma_\pm^{-k_{j+1}}\sigma_\mp^{k_{j+1}} T^\mp_{j+1,0}
+$$
+With this definition, the green terms match.
+Let's do the red case.
+Since $i+1=n_\pm-k_j$ is out of range for $j$, we must interpret
+$$
+T^\pm_{j,n_\pm-k_j} = \sigma_\pm^{-k_{j}}\sigma_\mp^{k_{j}} T^\mp_{j,0}
+$$
+Note that this is the same formula as we wrote down before!
+Now the red case matches.
+Finally, we have to look at the purple case.
+Here, the non-generic case is $i=0$.
+Since $i=-1$ is out of range, we must interpret
+$$
+T^\pm_{j,-1} = \sigma_\pm^{-k_{j}}\sigma_\mp^{k_{j}} T^\mp_{j,n_\mp-k_j-1}
+$$
+Now the purple cases match.
+\\
+\\
+Now we only have to worry about $j_{\text{max}}$.
+}
+
+Generic formula for $S_\mp$ fully connected to $S_\pm$:
+\begin{align*}
+\rho(T^\pm_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} [i+j]/[m] } T^\pm_{j+1,i-1}
+%+\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} T^\pm_{j,i+1}
+\end{align*}
+
 
 \todo{$j_{\text{max}}$, and also $m=2$}
 
