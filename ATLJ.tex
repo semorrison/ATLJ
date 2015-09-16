@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \input{preamble}
 
 \title{Working notes}
@@ -13,7 +13,7 @@ We define a truncated tensor product $\boxtimes$ of ATLJ modules, which is the u
 any closed diagram passes through a string, and
 the $2\pi$ rotation acts identically.
 
-Observe that if $V$ and $W$ are sub-ATLJ modules of a evaluable planar algebra $\cP_\bullet$, there is an ATLJ homomorphism $V \boxtimes W \to \cP_\bullet$, because the additional relations we impose in the truncated tensor product automatically hold in an evaluable planar algebra.
+Observe that if $V$ and $W$ are sub-ATLJ modules of a evaluable planar algebra $\cP_\bullet$, the ATLJ homomorphism $V \otimes W \to \cP_\bullet$ descends to an ATLJ homomorphism $V \boxtimes W \to \cP_\bullet$, because the additional relations we impose in the truncated tensor product automatically hold in an evaluable planar algebra.
 
 We now aim to completely describe the decomposition of this truncated tensor product into irreducibles. 
 To prepare for this, we need some discussion of lowest weight vectors in ATLJ modules.
@@ -362,6 +362,33 @@ T_{i, j + 1} \\
 & \qquad \qquad \times \Big(
 \truth{m-n_+-n_- < 2j}  T_{i+1,j-2} + \truth{m-n_+-n_- > 2j} T_{i+1,j}
 \Big)
+\end{align*}
+
+
+\nn{Can we find the formulas for $\rho'$ just using the reflection in a vertical line?}
+
+Writing $\cT_i = \Span \{ T_{i,j} \}_{0 \leq j < m- 2i}$, we can write $\rho \mid_{\cT_i} = \mu_i + \nu_i$, where
+\begin{align*}
+\mu_i : & \cT_i \to \cT_i \\
+ & T_{i,j} \mapsto T_{i,j+1} + (-1)^{m-i}[i][m]^{-1} T_{i,j-1} \\
+\intertext{and}
+\nu_i : & \cT_i \to \cT_{i+1}.
+\end{align*}
+In fact, $\mu_i$ is just a circulant matrix in this basis, and so has multiplicity free eigenvalues
+$$\lambda_r = (-1)^{m-i}[i][m]^{-1} \zeta_{m-2i}^r + \zeta_{m-2i}^{-r},$$
+where $\zeta_{m-2i}$ is a primitive $(m-2i)$-th root of unity, with corresponding eigenvalues
+$$v_r = \left(1, \zeta_{m-2i}^r , \zeta_{m-2i}^{2r} , \ldots, \zeta_{m-2i}^{(m-2i-1)r} \right).$$
+
+Clearly when $i = 0$, these eigenvalues are exactly the $m$-th roots of unity, each of multiplicity one.
+
+\nn{Hope: when $i \neq 0$, the eigenvalues are never $m$-th roots of unity (sadly, they do sometimes have absolute value 1). I don't see how to prove this, perhaps it would require number theory?}
+\nn{This is false, ugh, there are weird special values where this can happen, see Mathematica notebook.}
+
+We thus have a unique solution to $\rho(X) = \zeta_m^r X$ for each $r$, given by $X = \sum_{i=0}^{\lfloor(m-2)/2\rfloor} X_i$, with
+\begin{align*}
+X_0 & = \sum_{j=0}^{m-1} \zeta^{-rj} T_{i,j} \\
+\intertext{and}
+X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 \end{align*}
 
 
