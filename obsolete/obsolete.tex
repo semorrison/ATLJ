@@ -1,0 +1,179 @@
+\documentclass{article}
+\input{../preamble}
+
+\title{Obsolete}
+
+\begin{document}
+\maketitle
+
+
+\nn{begin old stuff...}
+
+When $j=0$, there are either 1 or 2 places for a cap on the bottom, depending on the value of $i$, and the identity term in the Jones-Wenzl idempotent also contributes.
+$$
+\rho(T^\pm_{0,i}) = 
+\begin{cases}
+T^\pm_{0,1}
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k_0}[n_\mp-k_0][m]^{-1}} T^\pm_{1,0}&\text{if $i=0$}
+\\
+T^\pm_{0,i+1}
++\textcolor{DarkGreen}{(-1)^{m-n_\mp+k_0-i}[i+n_\mp-k_0][m]^{-1}} T^\pm_{1,i} +
+\\ \qquad + \textcolor{orange}{(-1)^{m-i} \sigma^{-1}_\mp\sigma_\pm [i][m]^{-1}} T^\pm_{1,i-1}
+&\text{if }0 < i <n_\pm-k_j-1
+\\
+\textcolor{red}{\sigma_\pm^{-k_0} \sigma_\mp^{k_0}} T^\mp_{0,0}
++\textcolor{DarkGreen}{-\sigma_\pm^{-k_1} \sigma_\mp^{k_1} [m-1][m]^{-1} } T^\mp_{1,0} +
+\\ \qquad +\textcolor{orange}{(-1)^{m-(n_\pm-k_0-1)} \sigma^{-1}_\mp\sigma_\pm [n_\pm-k_0-1][m]^{-1} } T^\pm_{1,n_\pm-k_0-2}
+&\text{if } i = n_\pm-k_0-1
+\end{cases}
+$$
+
+Now since $j$ can only increase by applying $\rho$, we see that the coefficient of $T^m_{0,i+1}$ in $X_{m,\omega}$ must be $\omega^{-1}$ times the coefficient of $T^m_{0,i}$.
+
+When $0<j<j_{\text{max}}$, there are 
+either 3 or 4 places for a cap on the bottom, depending on $i$, and the identity term in the Jones-Wenzl idempotent does \emph{not} contribute.
+\todo{fix below here...}
+$$
+\rho(T^\pm_{j,i}) = 
+\begin{cases}
+\textcolor{purple}{(-1)^{m-j}\cdot \sigma_\pm^{-k_j}\sigma_\mp^{k_j} [j][m]^{-1}} T^\mp_{j,n_\mp-k_j-1}
++\textcolor{DarkGreen}{coeff} T^\pm_{?,?}
++\textcolor{red}{coeff} T^\pm_{?,?}
+&\text{if $i=0$}
+\\
+\textcolor{purple}{(-1)^{m-j}[j][m]^{-1}} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} \sigma^{-1}_\mp\sigma_\pm [i+j][m]^{-1} } T^\pm_{j+1,i-1}
+\\ \qquad
++\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j][m]^{-1}} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j][m]^{-1}} T^\pm_{j,i+1}
+&\text{if $0 < i <n_\pm-k_j-1$}
+\\
+\textcolor{purple}{(-1)^{m-j}[j][m]^{-1}} T^\pm_{j,i-1}
++\textcolor{orange}{coeff \cdot \sigma^{-1}_\mp\sigma_\pm} T^\pm_{j+1,i-1}
+\\ \qquad
++\textcolor{DarkGreen}{coeff \cdot\sigma_\pm^{-k_{j+1}}\sigma_\mp^{k_{j+1}} } T^{\mp}_{j+1,0}
++\textcolor{red}{coeff} T^{?}_{?,?}
+&\text{if  $i =n_\pm-k_j-1$}
+\end{cases}
+$$
+
+Generic formula:
+
+\begin{align*}
+\rho(T^\pm_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} \sigma^{-1}_\mp\sigma_\pm [i+j]/[m] } T^\pm_{j+1,i-1}
+\\ &\qquad
++\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} T^\pm_{j,i+1}
+\end{align*}
+
+\nn{
+Let's try and match up the special cases.
+The first case to look at is when $j=0$ and $i$ is generic.
+When $j=0$, the purple term vanishes.
+The first term looks like the red term. 
+the green terms match up.
+The orange terms match up.
+Great!
+\\
+\\
+Now we need to look at the non-generic $i$ case.
+The orange case matches.
+Let's look at the green case.
+Since $n_\pm-k_j-1$ is out of range for $j+1$ (it's important to remember that $k_j$ was defined in terms of $j$, not $j+1$!), we must interpret
+$$
+T^\pm_{j+1,n_\pm-k_j-1} = \sigma_\pm^{-k_{j+1}}\sigma_\mp^{k_{j+1}} T^\mp_{j+1,0}
+$$
+With this definition, the green terms match.
+Let's do the red case.
+Since $i+1=n_\pm-k_j$ is out of range for $j$, we must interpret
+$$
+T^\pm_{j,n_\pm-k_j} = \sigma_\pm^{-k_{j}}\sigma_\mp^{k_{j}} T^\mp_{j,0}
+$$
+Note that this is the same formula as we wrote down before!
+Now the red case matches.
+Finally, we have to look at the purple case.
+Here, the non-generic case is $i=0$.
+Since $i=-1$ is out of range, we must interpret
+$$
+T^\pm_{j,-1} = \sigma_\pm^{-k_{j}}\sigma_\mp^{k_{j}} T^\mp_{j,n_\mp-k_j-1}
+$$
+Now the purple cases match.
+\\
+\\
+Now we only have to worry about $j_{\text{max}}$.
+This will inevitably lead us to the case below.
+}
+
+Generic formula for $S_\mp$ fully connected to $S_\pm$:
+\begin{align*}
+\rho(T^\pm_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} T^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} [i+j]/[m] } T^\pm_{j+1,i-1}
+%+\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} T^\pm_{j,i+1}
+\end{align*}
+\nn{
+The generic formula here never has any $\sigma$'s, since the region with the $*$'s are locked.
+Moreover, there's no going back and forth between $+$ and $-$, since the position of the $S_\pm$ are locked.
+This case only comes about with $n_+\neq n_-$.
+}
+
+\todo{$j_{\text{max}}$, and also $m=2$}
+
+\bigskip
+
+\textbf{Corey's Suggestion:}  I propose the following notation, with the goal of avoiding the ``symmetric tensor product" as per Scott's suggestion.  We revert to the old notation of $T_{j,i}$ with no $\pm$ superscript, for $0\le i\le n_{+}+n_{-}-2k_{j}-1$.  No planar isotopies allowed here, except 360 rotation equals identity.  Then define:
+
+\medskip
+
+$R^{+}_{j,i}:=T_{j,i}$ for $0\le i\le n_{+}-k_{j}-1$, and $R^{-}_{j,i}:=T_{j,n_{+}-k_{j}+i}$ for $0\le i\le n_{-}-k_{j}-1$.
+
+We interpret $R^{+}_{j,n_{+}-k_{j}}=R^{-}_{j,0}$ and $R^{-}_{j,n_{-}-k_{j}}=R^{+}_{j,0}$.  This is similar to what we had before but no powers of $\sigma_{\pm}^{k_j}$ in sight!  The explanation of why these disappear is that these come from the implementation of the braiding in the symmetrization, which we are trying to avoid for simplicities sake.  Then the full formula (including generic and special cases) is given by:
+ 
+ \begin{align*}
+\rho(R^\pm_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} R^\pm_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} \sigma^{-1}_\mp\sigma_\pm [i+j]/[m] } R^\pm_{j+1,i-1}
+\\ &\qquad
++\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} R^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} R^\pm_{j,i+1}
+\end{align*}
+ 
+With the interpretation above, this restricts to the non-generic cases.  This gives us a complete universal formula for the cases where the generator $S_{-}$ is not fully attached to $S_{+}$, and applying $\rho$ does not yield such a case.
+
+$S_{-}$ being fully attached to $S_{+}$ is determined by $j$.  Assume that $n_{-}<n_{+} $. Then such situations are given by $\frac{1}{2}(m-2)\ge j\ge \frac{1}{2}(m-n_{+}+n_{-})$ (note the left bound is the largest possible value of j).  In this situation, there are $m-2j$ strings attached from $S_{+}$ to the Jones-Wenzl $f_{m}$, and the rotations don't need a plus or minus, so we interpret $R_{j,i}=R^{\pm}_{j,i}=R^{\mp}_{j,i}$ , where $0\le i <m-{2j}$, and values of $i$ can be interpreted mod $m-2j$. 
+
+We consider first the case where $j=\frac{1}{2}(m-n_{+}+n_{-})+1$, so that apply $\rho$ will yield terms in this ``fully" attached case.  But inspection shows that the generic formula for the higher case applies with our given interpretation!!! So this is not actually a special case!
+
+
+
+Now we have the formula for the cases $\frac{1}{2}(m-1)\ge j\ge \frac{1}{2}(m-n_{+}+n_{-})$ is given by
+
+\begin{align*}
+\rho(R_{j,i}) 
+&= 
+\textcolor{purple}{(-1)^{m-j}[j]/[m]} R_{j,i-1}
++\textcolor{orange}{(-1)^{m-i-j} [i+j]/[m] } R_{j+1,i-1}
+%+\textcolor{DarkGreen}{(-1)^{m-i-j-n_{\mp}+k_j}[i+j+n_{\mp}-k_j]/[m]} T^\pm_{j+1,i}
++\textcolor{red}{(-1)^j [m-j]/[m]} R_{j,i+1}
+\end{align*}
+
+We simply have to interpret $R_{j,i}=0$ for $j>\frac{1}{2}(m-1)$, and we are finished.  To reiterate, a final formula is given by the above two, so our many cased thing. 
+
+\todo{Independently verify the above things are correct}
+
+Now, want to solve equation for $X_{\omega}=\sum_{j,i} c^{\pm}_{j,i}R^{\pm}_{j,i}$, $\rho(X_{\omega})=\omega X_{\omega}$.  Notice that our formula shows that normalizing $c_{0,0}=1$, $c_{0,i}=\omega^{-i}$.  Similarly the coefficients of $j$-max are determined.  While it may be possible that there is a unique solution just based on this equation alone (i.e. combining top down determination with bottom up determination), my original way to solve these equations was to look at the action of $\rho^{\prime}$ on these basis vectors.
+
+\todo{Write down equations for action of $\rho^{\prime}$}
+
+You get the same type of equations but the coefficients are replaced a nice $m-$ whatever they were symmetry.  This should yield enough information to solve exclusively from the top down recursively. 
+
+
+
+
+\end{document}
