@@ -43,8 +43,6 @@ $$
 By \cite[Proposition 5.3]{1502.06543}, as long as $\delta > 2$, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
 \end{proof}
 
-$$\text{if $x>0$}$$
-
 We then define the two operators $\rho, \rho' : \cV_m \to \cV_m$ as
 $$
 \mathfig{0.3}{CutDownRotation}.
@@ -218,18 +216,14 @@ $$
 X_{m, \omega} 
 = 
 \sum_{i=0}^{\lfloor\frac{m-2}{2}\rfloor}
-\sum_{j=0}^{m- 2i - 1} 
-(c_{m,\omega})_{i,j} T_{i,j}
+\left(X_{m,\omega}\right)_i
 $$
-where $T_{i,j}$ is as defined in Equation \eqref{eq:basis-elements}, and the $(c_{m,\omega})_{i,j}$ are determined by the equations
+with
 \begin{align*}
-\todo{}
+\left(X_{m,\omega}\right)_0 & =  \sum_{j=0}^{m-1} \omega^{-j} T_{0,j} \\
+\left(X_{m,\omega}\right)_{i+1} = - (\mu_{i+1} - \omega)^{-1} \nu_i \left(X_{m,\omega}\right)_i
 \end{align*}
-in the case that $m \leq n_1 + n_2$, and are determined by the equations
-\begin{align*}
-\todo{}
-\end{align*}
-in the case that $m > n_1 + n_2$.
+where $T_{i,j}$ is as defined in Equation \eqref{eq:basis-elements}, and the linear operators $\mu_i, \nu_i$ are as defined in the proof.
 \end{thm}
 \begin{proof}
 We apply $\rho$ to $T_{i,j}$ and expand the lower Jones-Wenzl idempotent.
@@ -277,7 +271,7 @@ which either
 
 Note that if $i=0$, cases \eqref{item:purple} and \eqref{item:red} cannot occur, while if $j=0$ case \eqref{item:orange} cannot occur. Moreover, in case \eqref{item:purple} above we have been careful to say that the cap occurs between the first multistrand and \emph{the next} multistrand, because in special cases the next multistrand is not the second one. In particular, when $j=0$, the cap actually connects the first multistrand with the third, because the second is absent. The third multistrand, with $m-2i-j$ strands, is never absent, so this is the only special case of this type.
 
-Finally, the bridging cap in case \eqref{item:green} occurs within the second multistrand exactly if $m-2i-j < n_+ - k_i$ or equivalently $i+j > m - n_+ + n_-$, and within the third multistrand exactly if $m-2i-j > n_+ - k_i$, or equivalently when $i+j < m - n_+ + n_-$. When equality occurs, we must remember to omit this case, because it is redundant with case \eqref{item:orange}, the cap between the second and third multistrands.
+Finally, the bridging cap in case \eqref{item:green} occurs within the second multistrand exactly if $m-2i-j < n_+ - k_i$ or equivalently $i+j > (m - n_+ + n_-)/2$, and within the third multistrand exactly if $m-2i-j > n_+ - k_i$, or equivalently when $i+j < (m - n_+ + n_-)/2$. When equality occurs, we must remember to omit this case, because it is redundant with case \eqref{item:orange}, the cap between the second and third multistrands.
 
 We now analyze the resulting diagram in each of the four cases, ignoring for now the coefficients arising in the Jones-Wenzl idempotent. As there is always a cup in the top right corner of the Temperley-Lieb diagram, there is an extra strand passing around the bottom of the diagram, thereby increasing $i$ by one.
 \begin{enumerate}[(a)]
@@ -335,11 +329,11 @@ Putting all this together, we obtain the formula
 \truth{i \neq 0}\textcolor{red}{(-1)^{i}  [m-i][m]^{-1}} T_{i, j + 1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j > m - n_+ + n_-} \times \\
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j < m - n_+ + n_-} \times \\
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
@@ -353,11 +347,11 @@ Happily, some simplifications occur here. In the second term, we can omit the $\
 \truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j > m - n_+ + n_-} \times \\
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j < m - n_+ + n_-} \times \\
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
@@ -396,11 +390,6 @@ X_0 & = \sum_{j=0}^{m-1} \zeta^{-rj} T_{0,j} \\
 X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 \qedhere
 \end{align*}
-
-
-
-
-
 \end{proof}
 
 \nn{Can we find the formulas for $\rho'$ just using the reflection in a vertical line?}
@@ -415,17 +404,22 @@ X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 When $n_+ = n_- = 2n$, we have
 \begin{align*}
 \nu_i(T_{i,j})
-& =
-\truth{j \neq 0}(-1)^{m-i-j} [i+j][m]^{-1} \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
+& = (-1)^j[m]^{-1} \times\\
+& \quad \Bigg(
+\truth{j \neq 0}(-1)^{m-i} [i+j] \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
 & \qquad +
-\truth{i+j > m} (-1)^{j} [2i + j + -m/2][m]^{-1} T_{i+1,j-2} \\
+\truth{i+j > m/2} [2i + j + -m/2] T_{i+1,j-2} \\
 & \qquad +
-\truth{i+j < m} (-1)^{j} [j+ m/2 ][m]^{-1} T_{i+1,j}
-\intertext{and}
+\truth{i+j < m/2} [j+ m/2 ] T_{i+1,j} \Bigg)
+\end{align*}
+and
+\begin{align*}
 \nu_0(T_{0,j})
-& =
-(-1)^{m-j} [j][m]^{-1} \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
-& \qquad + (-1)^{j} [j+ m/2 ][m]^{-1} T_{1,j}.
+& = (-1)^j [m]^{-1} \times \\
+& \quad \Bigg(
+(-1)^{m} [j] \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
+& \qquad + \truth{j > m/2} [j- m/2] T_{1,j - 2} \\
+& \qquad + \truth{j < m/2} [j+ m/2] T_{1,j} \Bigg).
 \end{align*}
 \end{lem}
 
@@ -477,6 +471,8 @@ Could this give us supertransitivity obstructions, or are the above equations  $
 
 \bigskip
 
+\nn{some old stuff has been moved to obsolete/obsolete.tex}
+
 \nn{old stuff}
 
 
@@ -508,12 +504,12 @@ $$
 \mathfig{0.2}{QuadraticEqn.jpg}
 $$
 
-Step 1: Let’s assume there’s some constant $Q$ for the (?) above, and calculate a formula in terms of $Q$. 
+Step 1: Let's assume there’s some constant $Q$ for the (?) above, and calculate a formula in terms of $Q$. 
 \begin{itemize}
 \item
-Let’s expand the $(2n+2)$-strand JW, but not all the way, and equate coefficients of certain diagrams.
+Let's expand the $(2n+2)$-strand JW, but not all the way, and equate coefficients of certain diagrams.
 \item
-We’re interested in calculating the coefficients on both sides of the following diagram:
+We're interested in calculating the coefficients on both sides of the following diagram:
 $$
 \mathfig{0.12}{SCupTopLeft.jpg}
 $$
