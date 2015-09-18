@@ -43,8 +43,6 @@ $$
 By \cite[Proposition 5.3]{1502.06543}, as long as $\delta > 2$, $\cL_m$ has non-zero eigenvalue on the annular consequence.  Therefore only the uncappable vectors can be in the $Ker(\cL_m)$.
 \end{proof}
 
-$$\text{if $x>0$}$$
-
 We then define the two operators $\rho, \rho' : \cV_m \to \cV_m$ as
 $$
 \mathfig{0.3}{CutDownRotation}.
@@ -218,18 +216,14 @@ $$
 X_{m, \omega} 
 = 
 \sum_{i=0}^{\lfloor\frac{m-2}{2}\rfloor}
-\sum_{j=0}^{m- 2i - 1} 
-(c_{m,\omega})_{i,j} T_{i,j}
+\left(X_{m,\omega}\right)_i
 $$
-where $T_{i,j}$ is as defined in Equation \eqref{eq:basis-elements}, and the $(c_{m,\omega})_{i,j}$ are determined by the equations
+with
 \begin{align*}
-\todo{}
+\left(X_{m,\omega}\right)_0 & =  \sum_{j=0}^{m-1} \omega^{-j} T_{0,j} \\
+\left(X_{m,\omega}\right)_{i+1} = - (\mu_{i+1} - \omega)^{-1} \nu_i \left(X_{m,\omega}\right)_i
 \end{align*}
-in the case that $m \leq n_1 + n_2$, and are determined by the equations
-\begin{align*}
-\todo{}
-\end{align*}
-in the case that $m > n_1 + n_2$.
+where $T_{i,j}$ is as defined in Equation \eqref{eq:basis-elements}, and the linear operators $\mu_i, \nu_i$ are as defined in the proof.
 \end{thm}
 \begin{proof}
 We apply $\rho$ to $T_{i,j}$ and expand the lower Jones-Wenzl idempotent.
@@ -277,7 +271,7 @@ which either
 
 Note that if $i=0$, cases \eqref{item:purple} and \eqref{item:red} cannot occur, while if $j=0$ case \eqref{item:orange} cannot occur. Moreover, in case \eqref{item:purple} above we have been careful to say that the cap occurs between the first multistrand and \emph{the next} multistrand, because in special cases the next multistrand is not the second one. In particular, when $j=0$, the cap actually connects the first multistrand with the third, because the second is absent. The third multistrand, with $m-2i-j$ strands, is never absent, so this is the only special case of this type.
 
-Finally, the bridging cap in case \eqref{item:green} occurs within the second multistrand exactly if $m-2i-j < n_+ - k_i$ or equivalently $i+j > m - n_+ + n_-$, and within the third multistrand exactly if $m-2i-j > n_+ - k_i$, or equivalently when $i+j < m - n_+ + n_-$. When equality occurs, we must remember to omit this case, because it is redundant with case \eqref{item:orange}, the cap between the second and third multistrands.
+Finally, the bridging cap in case \eqref{item:green} occurs within the second multistrand exactly if $m-2i-j < n_+ - k_i$ or equivalently $i+j > (m - n_+ + n_-)/2$, and within the third multistrand exactly if $m-2i-j > n_+ - k_i$, or equivalently when $i+j < (m - n_+ + n_-)/2$. When equality occurs, we must remember to omit this case, because it is redundant with case \eqref{item:orange}, the cap between the second and third multistrands.
 
 We now analyze the resulting diagram in each of the four cases, ignoring for now the coefficients arising in the Jones-Wenzl idempotent. As there is always a cup in the top right corner of the Temperley-Lieb diagram, there is an extra strand passing around the bottom of the diagram, thereby increasing $i$ by one.
 \begin{enumerate}[(a)]
@@ -295,7 +289,7 @@ a cap between the third and fourth multistrands reduces $i$ but increases $j$, p
 }
 \item
 \textcolor{DarkGreen}{
-the bridging cap (when it is distinct from case \eqref{item:orange}) reduces $j$ by two when it lies within the second multistrand, and does not change $j$ when it lies within the third multistrand, producing $T_{i+1, j - 2\truth{i+j > m - n_+ + n_-}}$. 
+the bridging cap (when it is distinct from case \eqref{item:orange}) reduces $j$ by two when it lies within the second multistrand, producing $T_{i+1, j - 2}$, and does not change $j$ when it lies within the third multistrand, producing $T_{i+1, j}$. 
 }
 \end{enumerate}
 
@@ -322,7 +316,7 @@ The coefficient of the following Temperley-Lieb diagram in the Jones-Wenzl idemp
 \end{align*}
 \end{lem}
 
- 
+  
 Putting all this together, we obtain the formula
 \begin{align*}
 \rho(T_{i,j}) & =
@@ -335,11 +329,11 @@ Putting all this together, we obtain the formula
 \truth{i \neq 0}\textcolor{red}{(-1)^{i}  [m-i][m]^{-1}} T_{i, j + 1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j > m - n_+ + n_-} \times \\
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j < m - n_+ + n_-} \times \\
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
@@ -353,21 +347,21 @@ Happily, some simplifications occur here. In the second term, we can omit the $\
 \truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j > m - n_+ + n_-} \times \\
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
-\truth{i+j < m - n_+ + n_-} \times \\
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
 & \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
 
 Writing $\cT_i = \Span \{ T_{i,j} \}_{0 \leq j < m- 2i}$, we can write $\rho \mid_{\cT_i} = \mu_i + \nu_i$, where
 \begin{align*}
-\mu_i : & \cT_i \to \cT_i \\
- & T_{i,j} \mapsto (-1)^i [m]^{-1} \left( [m-i] T_{i,j+1} + (-1)^{m}[i] T_{i,j-1}\right) \\
+\mu_i :  \cT_i & \to \cT_i \\
+  T_{i,j} & \mapsto (-1)^i [m]^{-1} \left( [m-i] T_{i,j+1} + (-1)^{m}[i] T_{i,j-1}\right) \\
 \intertext{and}
-\nu_i : & \cT_i \to \cT_{i+1}.
+\nu_i : \cT_i & \to \cT_{i+1}.
 \end{align*}
 Thus any eigenvector $\rho(X) = \omega X$ is of the form $X = \sum_i X_i$, where for some $i_0$, $X_i = 0$ for $i < i_0$, and $\mu_{i_0} X_{i_0} = \omega X_{i_0}$.
 
@@ -396,11 +390,6 @@ X_0 & = \sum_{j=0}^{m-1} \zeta^{-rj} T_{0,j} \\
 X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 \qedhere
 \end{align*}
-
-
-
-
-
 \end{proof}
 
 \nn{Can we find the formulas for $\rho'$ just using the reflection in a vertical line?}
@@ -411,32 +400,79 @@ X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 
 
 \begin{lem}
+\label{lem:nu0}
 When $n_+ = n_- = 2n$, we have
 \begin{align*}
 \nu_i(T_{i,j})
-& =
-\truth{j \neq 0}(-1)^{m-i-j} [i+j][m]^{-1} \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
+& = (-1)^j[m]^{-1} \times\\
+& \quad \Bigg(
+\truth{j \neq 0}(-1)^{m-i} [i+j] \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
 & \qquad +
-\truth{i+j > m} (-1)^{j} [2i + j + -m/2][m]^{-1} T_{i+1,j-2} \\
+\truth{i+j > m/2} [2i + j + -m/2] T_{i+1,j-2} \\
 & \qquad +
-\truth{i+j < m} (-1)^{j} [j+ m/2 ][m]^{-1} T_{i+1,j}
-\intertext{and}
+\truth{i+j < m/2} [j+ m/2 ] T_{i+1,j} \Bigg)
+\end{align*}
+and
+\begin{align*}
 \nu_0(T_{0,j})
-& =
-(-1)^{m-j} [j][m]^{-1} \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
-& \qquad + (-1)^{j} [j+ m/2 ][m]^{-1} T_{1,j}.
+& = (-1)^j [m]^{-1} \times \\
+& \quad \Bigg(
+(-1)^{m} [j] \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
+& \qquad + \truth{j > m/2} [j- m/2] T_{1,j - 2} \\
+& \qquad + \truth{j < m/2} [j+ m/2] T_{1,j} \Bigg).
 \end{align*}
 \end{lem}
 
+\begin{lem}
+The resolvent of $\mu_i$ is given by
+\begin{align*}
+(\mu_i - z)^{-1}(T_{i,j}) & = ???
+\end{align*}
+\end{lem}
+\begin{proof}
+The eigenvectors described above for $\mu_i$ are orthogonal, so we can diagonalize:
+\begin{align*}
+\mu_i = P D P'
+\end{align*}
+where $D$ is diagonal with 
+$D_{\ell\ell} = (-1)^i(m-2i)^{-1}[m]^{-1} \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell\right)$, 
+$P_{jj'} = \zeta_{m-2i}^{jj'}$, and 
+$P'_{jj'} = \zeta_{m-2i}^{-jj'}$.
+We obtain
+\begin{align*}
+(\mu_i - z)^{-1}_{jj'} & = (-1)^i(m-2i)^{-1}[m]^{-1} \sum_{\ell} \zeta_{m-2i}^{\ell(j-j')}  \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell - z\right)^{-1} \\
+...
+\end{align*}
+\nn{which I can't think of anything to do with...}
+\end{proof}
 
 We now consider $V$ an irreducible ATLJ submodule of some planar algebra $P$, and the ATLJ homomorphism $\psi: V\boxtimes V\rightarrow P$. Let $S$ denote a lowest weight generator of $V$, with weight $2n$ and rotational eigenvalue $\sigma$.
 
-For $\omega$ a $(n+2)$-th root of unity, we have the unique (up to scale) lowest weight vector $X_\omega = \sum X_{\omega,i}$ in $(V \boxtimes V)_{n+1}$ with rotational eigenvalue $\omega$
-$$X_{\omega,0} = \sum_{j=0}^{m-1} \omega^{-j} T_{0,j}.$$
+For $\omega$ a $(2n+2)$-th root of unity, we have the unique (up to scale) lowest weight vector $X_\omega = \sum X_{\omega,i}$ in $(V \boxtimes V)_{2n+2}$ with rotational eigenvalue $\omega$ with
+\begin{align*}
+X_{\omega,0} & = \sum_{j=0}^{2n+1} \omega^{-j} T_{0,j} \\
+X_{\omega,i+1} & = - (\mu_{i+1} - \omega)^{-1} \nu_i X_i \\
+\intertext{and in particular, by Lemma \ref{lem:nu0}}
+X_{\omega,1} & = - (\mu_{i+1} - \omega)^{-1}  ...
+\end{align*}
+
+\textbf{Super Transitivity obstruction????} It seems like our above work should yield $*^{n-1}1$ obstructions (no zeros), and in fact it looks like (preliminarily) we get $2n+2$ of them! (I think half are redundant since the two generators are equal in our planar algebra).
+
+The idea is as follows:
+
+Let $\omega$ be a $2n+2^{th}$ root of unity, and let $X=\sum X_{i}$ be the eigenvector in $V\boxtimes V$ as above, where $m=2n+2$. Let $\psi: V\boxtimes V\rightarrow P$ be the planar algebra map.  By super transitivity, we know that $\psi(X_i)=0$ for $i>1$, and so we have that $\psi(X)=\psi(X_1)+\psi(X_0)$.  Let $R$ be the picture with $f_{2n+2}$ and top and an $\check{S}$ attached with a single strand around the back (1-strand box-jellyfish I think you call it?).  From Planar algebra theory, we know that $\psi(X_1)=r a_{\omega, \sigma} R$, where $r$ appears in the quadratic relation of $S$, and $a_{\omega, \sigma}$ depends on the coefficients of $X_1$ (to be computed).  If $\psi(X)$ is $0$, then $R^{*}\psi(X)=0$, and we can evaulate this in the planar algebra to get an equation with just numbers, involving quantum numbers, $\sigma$, $r$ and $\omega$!  If $\psi(X)$ is not $0$, then it is an eigenvector of rotation, so is orthogonal to annular consequences of lower stuff (in particular of $\check{S}$), and thus we still have $R^{*}\psi(X)=0$!  Thus we get the same equation, independently of the annular multiplicities of the n+1 box space!  The number of such equations is 2n+2 (but it looks like half are redundant), so at least we have n+1 equations.  
 
 
+Could this give us supertransitivity obstructions, or are the above equations  $0=0$?  It seems unlikely from a preliminary attempt that this is the case, since it works for arbitrary $\omega$ and we are not summing over $\omega$ like we did the first time.
+
+\bigskip
 
 \hrule
+
+\bigskip
+
+\nn{some old stuff has been moved to obsolete/obsolete.tex}
+
 \nn{old stuff}
 
 
@@ -468,12 +504,12 @@ $$
 \mathfig{0.2}{QuadraticEqn.jpg}
 $$
 
-Step 1: Let’s assume there’s some constant $Q$ for the (?) above, and calculate a formula in terms of $Q$. 
+Step 1: Let's assume there’s some constant $Q$ for the (?) above, and calculate a formula in terms of $Q$. 
 \begin{itemize}
 \item
-Let’s expand the $(2n+2)$-strand JW, but not all the way, and equate coefficients of certain diagrams.
+Let's expand the $(2n+2)$-strand JW, but not all the way, and equate coefficients of certain diagrams.
 \item
-We’re interested in calculating the coefficients on both sides of the following diagram:
+We're interested in calculating the coefficients on both sides of the following diagram:
 $$
 \mathfig{0.12}{SCupTopLeft.jpg}
 $$
