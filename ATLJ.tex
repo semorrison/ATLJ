@@ -460,12 +460,52 @@ X_{\omega,1} & = - (\mu_{i+1} - \omega)^{-1}  ...
 
 The idea is as follows:
 
-Let $\omega$ be a $2n+2^{th}$ root of unity, and let $X=\sum X_{i}$ be the eigenvector in $V\boxtimes V$ as above, where $m=2n+2$. Let $\psi: V\boxtimes V\rightarrow P$ be the planar algebra map.  By super transitivity, we know that $\psi(X_i)=0$ for $i>1$, and so we have that $\psi(X)=\psi(X_1)+\psi(X_0)$.  Let $R$ be the picture with $f_{2n+2}$ and top and an $\check{S}$ attached with a single strand around the back (1-strand box-jellyfish I think you call it?).  From Planar algebra theory, we know that $\psi(X_1)=r a_{\omega, \sigma} R$, where $r$ appears in the quadratic relation of $S$, and $a_{\omega, \sigma}$ depends on the coefficients of $X_1$ (to be computed).  If $\psi(X)$ is $0$, then $R^{*}\psi(X)=0$, and we can evaulate this in the planar algebra to get an equation with just numbers, involving quantum numbers, $\sigma$, $r$ and $\omega$!  If $\psi(X)$ is not $0$, then it is an eigenvector of rotation, so is orthogonal to annular consequences of lower stuff (in particular of $\check{S}$), and thus we still have $R^{*}\psi(X)=0$!  Thus we get the same equation, independently of the annular multiplicities of the n+1 box space!  The number of such equations is 2n+2 (but it looks like half are redundant), so at least we have n+1 equations.  
+Let $\omega$ be a $2n+2^{th}$ root of unity, and let $X=\sum X_{i}$ be the eigenvector in $V\boxtimes V$ as above, where $m=2n+2$. Let $\psi: V\boxtimes V\rightarrow P$ be the planar algebra map.  By n-1 super transitivity, we know that $\psi(X_i)=0$ for $i>1$, and so we have that $\psi(X)=\psi(X_1)+\psi(X_0)$.  Let $R$ be the picture with $f_{2n+2}$ and top and an $\check{S}$ attached with a single strand around the back (1-strand box-jellyfish I think you call it?).  From planar algebra theory, we know that $\psi(X_1)=a_{\omega, \sigma, r, \check{r}} R$, where $r\ (\text{resp.}\ \check{r})$ appears in the quadratic relation of $S\ (\text{resp.}\ \check{S})$, and $a_{\omega, \sigma, r, \check{r}}$ (to be computed). (Note, in the subfactor case the appearance of $r$ and $\check{r}$ in the various terms depends on the parity of $j$.  If $r=\check{r}$, then it appears multiplicatively, and we can factor it out so that $a_{\omega, \sigma, r, \check{r}}$ is $r$ times something depending only on $\omega$ and $\sigma$, but in general, this number will also depend on $r$ and $\check{r}$.) If $\psi(X)$ is $0$, then $R^{*}\psi(X)=0$, and we can evaluate this in the planar algebra to get an equation with just numbers, involving quantum numbers, $\sigma$, $r$ and $\omega$ (and $\check{r}$ in the subfactor case!)  If $\psi(X)$ is not $0$, then it is an eigenvector of rotation, so is orthogonal to annular consequences of lower stuff (in particular of $\check{S}$), and thus we still have $R^{*}\psi(X)=0$!  Thus we get the same equation, independently of the annular multiplicities of the n+1 box space!  The number of such equations is 2n+2 (but we will see that only half of them are new.)
 
 
-Could this give us supertransitivity obstructions, or are the above equations  $0=0$?  It seems unlikely from a preliminary attempt that this is the case, since it works for arbitrary $\omega$ and we are not summing over $\omega$ like we did the first time.
+Could this give us supertransitivity obstructions, or are the above equations  $0=0$?  It seems unlikely from a preliminary investigation that we always (or ever) get $0=0$.
 
 \bigskip
+
+Lets do a computation,  in particular lets compute $R^{*}\psi(X_0)$.  First, we assume now we are in spherical subfactor-shaded land, (although it appears we get a much stronger obstruction for spherical non-shaded, as to be expected).  Then we have three parameters: $r_{0}:=r=Tr(S^{3})$,  $r_{1}:=\check{r}=Tr(\check{S}^{3})$, and $\sigma$. For $0\le j\le n$, we have
+
+$$R^{*}\psi(T_{0,j})=(-1)^{j}\sigma^{j}\frac{[2n+2-j]}{[2n+2]} r_{j\ \text{mod}2}+(-1)^{n+j+1}\sigma^{j+1}\frac{[n+1-j]}{[2n+2]} r_{(j+1)\text{mod}2}$$
+$$+(-1)^{j}\sigma^{j-2}\frac{[j]}{[2n+2]} r_{j\ \text{mod}2}+(-1)^{n+j+1}\sigma^{j-1}\frac{[n+1+j]}{[2n+2]} r_{(j+1)\text{mod}2}$$
+
+Even though there are special cases in the pictures, interpreting $[0]=0$ in fact leads to the above formula for all cases!  Now, recall that for a $2n+2$ root of unity $\omega$, $X_{0}=\sum^{2n+1}_{j=0} \omega^{-j}T_{0,j}$.  Furthermore, since $\sigma$ is a $2n^{th}$ root of unity, we see that $\psi(T_{0,j})=\psi(T_{0,j-n-1})$ for $j\ge n+1$.
+
+Thus 
+
+$$R^{*}\psi(X_0)=\sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[ \left(\sigma^{j}\frac{[2n+2-j]}{[2n+2]}
++\sigma^{j-2}\frac{[j]}{[2n+2]}\right)(-1)^{j} r_{j\ \text{mod}2}
+\right.$$
+
+
+$$\left.+\left( \sigma^{j+1}\frac{[n+1-j]}{[2n+2]}+\sigma^{j-1}\frac{[n+1+j]}{[2n+2]} \right)(-1)^{n+j+1}r_{(j+1)\text{mod}2}\right]$$
+
+\nn{All these formulas need to be checked, include pictures}
+
+We also note that the above formula is entirely general, and requires no assumption on super-transitivity.  It is the computation of $a_{\omega, \sigma}$ that depends on super transitivity
+
+Now, to obtain our equation depending on $\omega$, we have
+
+$$0=a_{\omega, \sigma, r, \check{r}} R^{*}R+R^{*}\psi(X_0)$$
+$$= a_{\omega, \sigma, r, \check{r}}([2n+2]^{-1}(q^{2n+2}+q^{-2n-2}-\sigma^{2}-\sigma^{-2}))$$
+$$
++\sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[ \left(\sigma^{j}\frac{[2n+2-j]}{[2n+2]}
++\sigma^{j-2}\frac{[j]}{[2n+2]}\right)(-1)^{j} r_{j\ \text{mod}2}
+\right.$$
+
+
+$$\left.+\left( \sigma^{j+1}\frac{[n+1-j]}{[2n+2]}+\sigma^{j-1}\frac{[n+1+j]}{[2n+2]} \right)(-1)^{n+j+1}r_{(j+1)\text{mod}2}\right]$$
+
+Notice that exchanging $\omega$ with $\omega^{n+1}$ gives the same equation, and since $\omega$ is a $2n+2$ root of unity, we really only have $n+1$ equations.
+
+\nn{IMPORTANT:} We want to point out an interesting feature of the above equations:  If $r=\check{r}$ (so in particular for unshaded planar algebras), we can factor $r$ out and divide by it.  In this case, for each $\omega$ the above equation depends only on $q$, $\sigma$ and $n$.  This seems quite remarkable.  Can we plug it into mathematica, and see what happens?
+
+
+
+
 
 \hrule
 
