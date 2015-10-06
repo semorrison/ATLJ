@@ -448,7 +448,7 @@ $D_{\ell\ell} = (-1)^i [m]^{-1} \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \
 $P_{jj'} = (m-2i)^{-1/2} \zeta_{m-2i}^{jj'}$.
 We obtain
 \begin{align*}
-(\mu_i - z)^{-1}_{jj'} & = \frac{(-1)^i}{(m-2i)[m]} \sum_{\ell} \zeta_{m-2i}^{\ell(j-j')}  \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell - (-1)^i [m] z\right)^{-1} \\
+(\mu_i - z)^{-1}_{jj'} & = \frac{(-1)^i [m]}{(m-2i)} \sum_{\ell} \zeta_{m-2i}^{\ell(j-j')}  \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell - (-1)^i [m] z\right)^{-1} \\
 ...
 \end{align*}
 \nn{which I can't think of anything to do with...}
@@ -460,7 +460,7 @@ We now consider $V$ an irreducible ATLJ submodule of some planar algebra $P$, an
 For $\omega$ a $(2n+2)$-th root of unity, we have the unique (up to scale) lowest weight vector $X_\omega = \sum X_{\omega,i}$ in $(V \boxtimes V)_{2n+2}$ with rotational eigenvalue $\omega$ with
 \begin{align*}
 X_{\omega,0} & = \sum_{j=0}^{2n+1} \omega^{-j} T_{0,j} \\
-X_{\omega,i+1} & = - (\mu_{i+1} - \omega)^{-1} \nu_i X_i \\
+X_{\omega,i+1} & = - (\mu_{i+1} - \omega)^{-1} \nu_i X_{\omega,i} \\
 \intertext{and in particular, by Lemma \ref{lem:nu0}}
 X_{\omega,1} & = - (\mu_{i+1} - \omega)^{-1}  ...
 \end{align*}
