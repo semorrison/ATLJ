@@ -1,8 +1,8 @@
 \documentclass[12pt]{article}
 \input{preamble}
 
-\title{Working notes}
-\author{Corey Jones, Scott Morrison, David Penneys}
+\title{A truncated fusion of annular Temperley-Lieb-Jones modules}
+\author{Corey Jones, Scott Morrison, and David Penneys}
 
 
 \begin{document}
@@ -241,8 +241,8 @@ In general there are four different places the cap could appear along the bottom
 We can thus have
 \begin{enumerate}[(a)]
 \item
-\label{item:purple}
-\textcolor{purple}{
+\label{item:blue}
+\textcolor{blue}{
 a cap appearing with $i-1$ strands to the left, between the first multistrand and the next,
 }
 \item
@@ -269,14 +269,14 @@ which either
 %In general, the bridging cap appears with $i - 1 + (j+n_+-k_i \pmod{m-2i})$ strands to the left.
 (The colour coding of these cases is used throughout the formulas below, to indicate terms arising from each of these possibilities.)
 
-Note that if $i=0$, cases \eqref{item:purple} and \eqref{item:red} cannot occur, while if $j=0$ case \eqref{item:orange} cannot occur. Moreover, in case \eqref{item:purple} above we have been careful to say that the cap occurs between the first multistrand and \emph{the next} multistrand, because in special cases the next multistrand is not the second one. In particular, when $j=0$, the cap actually connects the first multistrand with the third, because the second is absent. The third multistrand, with $m-2i-j$ strands, is never absent, so this is the only special case of this type.
+Note that if $i=0$, cases \eqref{item:blue} and \eqref{item:red} cannot occur, while if $j=0$ case \eqref{item:orange} cannot occur. Moreover, in case \eqref{item:blue} above we have been careful to say that the cap occurs between the first multistrand and \emph{the next} multistrand, because in special cases the next multistrand is not the second one. In particular, when $j=0$, the cap actually connects the first multistrand with the third, because the second is absent. The third multistrand, with $m-2i-j$ strands, is never absent, so this is the only special case of this type.
 
 Finally, the bridging cap in case \eqref{item:green} occurs within the second multistrand exactly if $m-2i-j < n_+ - k_i$ or equivalently $i+j > (m - n_+ + n_-)/2$, and within the third multistrand exactly if $m-2i-j > n_+ - k_i$, or equivalently when $i+j < (m - n_+ + n_-)/2$. When equality occurs, we must remember to omit this case, because it is redundant with case \eqref{item:orange}, the cap between the second and third multistrands.
 
 We now analyze the resulting diagram in each of the four cases, ignoring for now the coefficients arising in the Jones-Wenzl idempotent. As there is always a cup in the top right corner of the Temperley-Lieb diagram, there is an extra strand passing around the bottom of the diagram, thereby increasing $i$ by one.
 \begin{enumerate}[(a)]
 \item
-\textcolor{purple}{
+\textcolor{blue}{
 a cap between the first multistrand and the next has the effect of reducing both $i$ and $j$, in net producing $T_{i,j-1}$ (one needs to consider carefully that this is still true when $j=0$, that is, the second multistrand is absent; recall we consider $j \pmod{m-2i}$, because of $2\pi$ rotational invariance),
 }
 \item
@@ -322,7 +322,7 @@ Putting all this together, we obtain the formula
 \rho(T_{i,j}) & =
 \truth{i = 0} T_{i, j + 1} \\
 & \qquad +
-\truth{i \neq 0} \textcolor{purple}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
+\truth{i \neq 0} \textcolor{blue}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
 & \qquad +
 \truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
@@ -330,7 +330,7 @@ Putting all this together, we obtain the formula
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j > (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
+& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 +m+ j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j < (m - n_+ + n_-)/2} \times \\
@@ -342,13 +342,13 @@ Happily, some simplifications occur here. In the second term, we can omit the $\
 \rho(T_{i,j}) & =
 (-1)^i[m-i][m]^{-1} T_{i, j + 1} \\
 & \qquad +
-\textcolor{purple}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
+\textcolor{blue}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
 & \qquad +
 \truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j > (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(-m + n_+ - n_-)/2 + j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
+& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 +m +j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j < (m - n_+ + n_-)/2} \times \\
@@ -363,7 +363,15 @@ Writing $\cT_i = \Span \{ T_{i,j} \}_{0 \leq j < m- 2i}$, we can write $\rho \mi
 \intertext{and}
 \nu_i : \cT_i & \to \cT_{i+1}.
 \end{align*}
-Thus any eigenvector $\rho(X) = \omega X$ is of the form $X = \sum_i X_i$, where for some $i_0$, $X_i = 0$ for $i < i_0$, and $\mu_{i_0} X_{i_0} = \omega X_{i_0}$.
+Thus any eigenvector $\rho(X) = \omega X$ is of the form $X = \sum_i X_i$ where:
+\begin{enumerate}[(1)]
+\item
+$X_i\in \cT_i$ for all $i$, 
+\item
+there is some $i_0$ such that $X_i = 0$ for $i < i_0$, and 
+\item
+$\mu_{i_0} X_{i_0} = \omega X_{i_0}$.
+\end{enumerate}
 
 In fact, $\mu_i$ is just a circulant matrix in this basis, and so has multiplicity free eigenvalues
 $$\lambda_r = (-1)^i[m]^{-1} \left([m-i] \zeta_{m-2i}^{-r} + (-1)^{m}[i] \zeta_{m-2i}^r\right),$$
