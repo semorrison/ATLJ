@@ -372,4 +372,38 @@
 \@tempswatrue \fi}
 
 
+%%%Tikz macro
 
+\newcommand{\roundNbox}[6]{
+	\draw[rounded corners=5pt, very thick, #1] ($#2+(-#3,-#3)+(-#4,0)$) rectangle ($#2+(#3,#3)+(#5,0)$);
+	\coordinate (ZZa) at ($#2+(-#4,0)$);
+	\coordinate (ZZb) at ($#2+(#5,0)$);
+	\node at ($1/2*(ZZa)+1/2*(ZZb)$) {#6};
+}
+
+\newcommand{\ncircle}[5]{
+	\draw[thick, #1] #2 circle (#3);
+	\node at #2 {#5};
+	\filldraw[red] ($#2+(#4:#3cm)$) circle (.05cm);
+%	\node at ($#2+(#4:.15cm)+(#4:#3cm)$) {$\star$};
+}
+
+\usetikzlibrary{decorations.pathmorphing}
+
+\pgfdeclaredecoration{complete sines}{initial}
+{
+    \state{initial}[
+        width=+0pt,
+        next state=sine,
+        persistent precomputation={\pgfmathsetmacro\matchinglength{
+            \pgfdecoratedinputsegmentlength / int(\pgfdecoratedinputsegmentlength/\pgfdecorationsegmentlength)}
+            \setlength{\pgfdecorationsegmentlength}{\matchinglength pt}
+        }] {}
+    \state{sine}[width=\pgfdecorationsegmentlength]{
+        \pgfpathsine{\pgfpoint{0.25\pgfdecorationsegmentlength}{0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathcosine{\pgfpoint{0.25\pgfdecorationsegmentlength}{-0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathsine{\pgfpoint{0.25\pgfdecorationsegmentlength}{-0.5\pgfdecorationsegmentamplitude}}
+        \pgfpathcosine{\pgfpoint{0.25\pgfdecorationsegmentlength}{0.5\pgfdecorationsegmentamplitude}}
+}
+    \state{final}{}
+}

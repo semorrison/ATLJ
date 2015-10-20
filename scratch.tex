@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\input{preamble}
+
+\title{Scratch work}
+
+\begin{document}
+\maketitle
+
+
+Let's try calculating (\nn{assuming $j\neq 0$, to avoid thinking about whether $m-2i - 0 = 0$ or $m-2i$}):
+\begin{align*}
+\rho'(T^{+-}_{i,j}) & = (\rho((T^{+-}_{i,j})^*))^* \\
+                    & = (\rho(T^{-+}_{i,-j}))^* \\
+                    & = (\rho(T^{-+}_{i,m-2i-j}))^* \\
+\intertext{and applying the definition of $\rho$ from ...}                    
+& = 
+\Bigg([m-i][m]^{-1} T^{-+}_{i, m-2i-j + 1} \\
+& \qquad +
+ [i][m]^{-1} T^{-+}_{i,m-2i-j-1} \\
+& \qquad +
+\truth{j \neq 0} [m-i-j][m]^{-1} \left(\sigma_-^{-1} \sigma_+\right)^{\truth{k_i \leq n_-} \truth{k_i \leq n_+}} T^{-+}_{i+1, m-2i-j-1} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j < (m + n_- - n_+)/2} \times \\
+& \qquad \quad \times  [-j + (m + n_- - n_+)/2][m]^{-1} T^{-+}_{i+1,m-2i-j-2} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j > (m + n_- - n_+)/2} \times \\
+& \qquad \quad \times  [m-2i-j+ (m + n_- - n_+)/2 ][m]^{-1} T^{-+}_{i+1,m-2i-j}\Bigg)^* \\
+\intertext{we now apply $*$, and simplify some of the coefficients}
+& = 
+[m-i][m]^{-1} T^{+-}_{i, j-1} \\
+& \qquad +
+ [i][m]^{-1} T^{+-}_{i,j+1} \\
+& \qquad +
+\truth{j \neq 0} [m-i-j][m]^{-1} \left(\sigma_-^{-1} \sigma_+\right)^{\truth{k_i \leq n_-} \truth{k_i \leq n_+}} T^{+-}_{i+1, j+1} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times  [-j + (m + n_- - n_+)/2][m]^{-1} T^{+-}_{i+1,j+2} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times [m-2i-j+ (m + n_- - n_+)/2 ][m]^{-1} T^{+-}_{i+1,j} \\
+\intertext{we now switch the first and second terms, and the fourth and fifth terms}
+& = 
+[i][m]^{-1} T^{+-}_{i,j+1} \\
+& \qquad +
+[m-i][m]^{-1} T^{+-}_{i, j-1} \\
+& \qquad +
+\truth{j \neq 0} [m-i-j][m]^{-1} \left(\sigma_-^{-1} \sigma_+\right)^{\truth{k_i \leq n_-} \truth{k_i \leq n_+}} T^{+-}_{i+1, j+1} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times  [m-2i-j+ (m + n_- - n_+)/2 ][m]^{-1} T^{+-}_{i+1,j} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times [-j + (m + n_- - n_+)/2][m]^{-1} T^{+-}_{i+1,j+2} 
+\end{align*}
+
+Observe that this messy calculation allows us to write a unified formula for $\rho$ and $\rho'$.
+Writing $\rho = \rho^+$ and $\rho' = \rho^-$, and defining $[i]_+ = [i]$ and $[i]_- = [m-i]$, we have
+\begin{align*}
+[m] \rho^{\pm}(T_{i,j}) & = 
+[m-i]_\pm T_{i,j+1} \\
+& \qquad +
+[i]_\pm T_{i, j-1} \\
+& \qquad +
+\truth{j \neq 0} [i+j]_\pm \left(\sigma_-^{-1} \sigma_+\right)^{\truth{k_i \leq n_-} \truth{k_i \leq n_+}} T_{i+1, j\mp1} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j > (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times  [2i+j+ (-m + n_+ - n_-)/2 ]_\pm  T_{i+1,j-1\mp1} \\
+& \qquad +
+\truth{k_i \leq n_-} \truth{k_i \leq n_+}
+\truth{i+j < (m - n_+ + n_-)/2} \times \\
+& \qquad \quad \times [j + (m + n_+ - n_-)/2]_\pm  T_{i+1,j+1\mp1} 
+\end{align*}
+
+\end{document}

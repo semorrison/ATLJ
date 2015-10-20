@@ -33,7 +33,20 @@ $$
 $$
 \end{lem}
 \begin{proof}
-First, it is clear that the lowest weight vectors are the kernel of $a$, where $$\mathfig{0.2}{LoweringOperator}.$$
+First, it is clear that the lowest weight vectors are the kernel of $a$, where 
+$$
+%\mathfig{0.2}{LoweringOperator}.
+a(x)=
+\begin{tikzpicture}[baseline = -.5cm]
+    \draw (0,-1) -- (0,.6);
+    \draw (.3,.3) arc (180:0:.2cm) -- (.7,-1) .. controls ++(270:.6cm) and ++(270:.6cm) .. (-.7,-1) -- (-.7,.3) arc (180:0:.2cm);
+	\roundNbox{unshaded}{(0,0)}{.3}{.2}{.2}{$\jw{m}$}
+    \ncircle{unshaded}{(0,-1)}{.3}{270}{$x$}
+    \node at (.2,-.5) {\scriptsize{$m$}};
+    \node at (0,.8) {\scriptsize{$m-2$}};
+    \node at (.8,-.7) {\scriptsize{$1$}};
+\end{tikzpicture}
+$$
 
 Certainly $\ker(a)\subset\ker(\cL_m)$.
 To show the other direction, we look at a basis of eigenvectors for $\cL_m$ acting on $\cV_m$ consisting of the new low weights, together with the annular consequences of previous low weights.  
@@ -45,7 +58,39 @@ By \cite[Proposition 5.3]{1502.06543}, as long as $\delta > 2$, $\cL_m$ has non-
 
 We then define the two operators $\rho, \rho' : \cV_m \to \cV_m$ as
 $$
-\mathfig{0.3}{CutDownRotation}.
+%\mathfig{0.3}{CutDownRotation}
+\rho(x)=
+\begin{tikzpicture}[baseline = -.1cm]
+    \draw (0,-1) -- (0,0);
+    \draw (-.3,0) -- (-.3,1);
+    \draw (0,1) -- (0,1.6);
+    \draw (.7,.3) arc (180:0:.2cm) -- (1.1,-1) .. controls ++(270:.8cm) and ++(270:.8cm) .. (-1.1,-1) -- (-1.1,0) .. controls ++(90:.3cm) and ++(270:.3cm) .. (-.7,.7) ;
+	\roundNbox{unshaded}{(0,1)}{.3}{.6}{.6}{$\jw{m}$}
+	\roundNbox{unshaded}{(0,0)}{.3}{.6}{.6}{$\jw{m}$}
+    \ncircle{unshaded}{(0,-1)}{.3}{270}{$x$}
+    \node at (.2,1.45) {\scriptsize{$m$}};
+    \node at (.2,.5) {\scriptsize{$m-1$}};
+    \node at (.2,-.5) {\scriptsize{$m$}};
+    \node at (1,-.7) {\scriptsize{$1$}};
+\end{tikzpicture}
+\,\,
+\text{ and }
+\,\,
+\rho'(x)=
+\begin{tikzpicture}[baseline = -.1cm, xscale=-1]
+    \draw (0,-1) -- (0,0);
+    \draw (-.3,0) -- (-.3,1);
+    \draw (0,1) -- (0,1.6);
+    \draw (.7,.3) arc (180:0:.2cm) -- (1.1,-1) .. controls ++(270:.8cm) and ++(270:.8cm) .. (-1.1,-1) -- (-1.1,0) .. controls ++(90:.3cm) and ++(270:.3cm) .. (-.7,.7) ;
+	\roundNbox{unshaded}{(0,1)}{.3}{.6}{.6}{$\jw{m}$}
+	\roundNbox{unshaded}{(0,0)}{.3}{.6}{.6}{$\jw{m}$}
+    \ncircle{unshaded}{(0,-1)}{.3}{270}{$x$}
+    \node at (.2,1.45) {\scriptsize{$m$}};
+    \node at (.2,.5) {\scriptsize{$m-1$}};
+    \node at (.2,-.5) {\scriptsize{$m$}};
+    \node at (1,-.7) {\scriptsize{$1$}};
+\end{tikzpicture}
+\,.
 $$
 
 
@@ -64,7 +109,16 @@ $$
 into a linear combination of Temperley-Lieb-Jones diagrams. 
 Only the identity diagram and the diagram
 $$
-\mathfig{0.2}{JonesProjection}
+\begin{tikzpicture}[baseline = -.1cm, yscale=-.5]
+	\draw (-.5,-.8)--(-.5,.8);
+	\draw (-.3,.8) arc (-180:0:.2cm);
+%	\draw (-.3,-.8)--(.3,.8);
+	\draw (-.3,-.8) arc (180:0:.2cm);
+	\node at (-1,0) {{\scriptsize{$m-2$}}};
+%	\node at (-.2,0) {{\scriptsize{$b$}}};
+    \node at (.2,0) {$\phantom{c}$};
+\end{tikzpicture}
+%\mathfig{0.2}{JonesProjection}
 $$
 contribute, and we obtain
 $
@@ -80,7 +134,39 @@ Consider irreducible $\cT$ modules $V^{n_+, \omega_+}$ and $V^{n_-, \omega_-}$, 
 and define for $0 \leq i \leq \lfloor (m-2)/2 \rfloor$ and $0 \leq j < m - 2i$ 
 \begin{align}
 \label{eq:basis-elements}
-T_{i,j} & = \mathfig{0.2}{Tij_generic}
+T_{i,j} & = 
+%\mathfig{0.2}{Tij_generic}
+\begin{tikzpicture}[baseline=-1cm]
+    \coordinate (a) at (-.5,-2);
+    \coordinate (b) at (.5,-2);
+%
+    \draw (a) -- (b);
+    \draw (a) -- ($ (a) + (0,.8)$);
+    \draw (b) -- ($ (b) + (0,.75)$);
+    \draw (1.4,-1) arc (180:0:.2cm) -- (1.8,-2) .. controls ++(270:.9cm) and ++(270:.9cm) .. (-1.8,-2) -- (-1.8,0);
+    \draw (2,0) -- (2,-2) .. controls ++(270:1.1cm) and ++(270:1.1cm) .. (-2,-2) -- (-2,0);
+%    \draw (1.3,.3) arc (180:0:.2cm) -- (1.7,-2) .. controls ++(270:1.3cm) and ++(270:1.3cm) .. (-1.7,-2) -- (-1.7,0) .. controls ++(90:.6cm) and ++(270:.6cm) .. (-1.3,.9);
+    \draw (0,0) -- (0,.8);
+    \draw (-.8,-1) -- (-.8,0);
+%
+    \roundNbox{unshaded}{(0,0)}{.3}{2}{2}{$\jw{m}$}
+%    \roundNbox{unshaded}{(0,1.2)}{.3}{1.2}{1.2}{$\jw{m}$}
+    \ncircle{unshaded}{(-.5,-2)}{.3}{270}{$S_+$}
+    \ncircle{unshaded}{(.5,-2)}{.3}{270}{$S_-$}
+%
+    \draw[decorate, decoration={complete sines, segment length=.2cm, amplitude=.1cm}] (-1.6,-1.2) -- (1.6,-1.2);
+    \draw[decorate, decoration={complete sines, segment length=.2cm, amplitude=.1cm}] (-1.6,-1) -- (1.6,-1);
+%
+    \node at (0,-.6) {\scriptsize{$m-2i-j$}}; 
+    \node at (.2,.6) {\scriptsize{$m$}}; 
+%    \node at (.2,1.8) {\scriptsize{$m$}}; 
+    \node at (1.6,-.6) {\scriptsize{$j$}}; 
+    \node at (2.2,-1.5) {\scriptsize{$i$}}; 
+ %   \node at (1.8,-.6) {\scriptsize{$1$}}; 
+    \node at (0,-2.2) {\scriptsize{$k_i$}}; 
+    \node at (1.1,-1.5) {\scriptsize{$n_- - k_i$}}; 
+    \node at (-1.1,-1.5) {\scriptsize{$n_+ - k_i$}}; 
+\end{tikzpicture}
 \end{align}
 where $k_i = (n_+ + n_- - m)/2 + i$. Here \nn{the squiggle lines just mean vertical strands.}
 It will be helpful in what follows to consider $j \pmod{m-2i}$, because we are insisting that $2\pi$ rotations act trivially.
@@ -229,7 +315,36 @@ where $T_{i,j}$ is as defined in Equation \eqref{eq:basis-elements}, and the lin
 We apply $\rho$ to $T_{i,j}$ and expand the lower Jones-Wenzl idempotent.
 $$
 \rho(T_{i,j})=
-\mathfig{0.2}{RhoTij}
+%\mathfig{0.2}{RhoTij}
+\begin{tikzpicture}[baseline=-.5cm]
+    \coordinate (a) at (-.5,-2);
+    \coordinate (b) at (.5,-2);
+%
+    \draw (a) -- (b);
+    \draw (a) -- ($ (a) + (0,.8)$);
+    \draw (b) -- ($ (b) + (0,.75)$);
+    \draw (.7,-1) arc (180:0:.2cm) -- (1.1,-2) .. controls ++(270:.9cm) and ++(270:.9cm) .. (-1.1,-2) -- (-1.1,0);
+    \draw (1.3,0) -- (1.3,-2) .. controls ++(270:1.1cm) and ++(270:1.1cm) .. (-1.3,-2) -- (-1.3,0);
+    \draw (1.3,.3) arc (180:0:.2cm) -- (1.7,-2) .. controls ++(270:1.3cm) and ++(270:1.3cm) .. (-1.7,-2) -- (-1.7,0) .. controls ++(90:.6cm) and ++(270:.6cm) .. (-1.3,.9);
+    \draw (0,0) -- (0,2);
+    \draw (-.8,-1) -- (-.8,0);
+%
+    \roundNbox{unshaded}{(0,0)}{.3}{1.2}{1.2}{$\jw{m}$}
+    \roundNbox{unshaded}{(0,1.2)}{.3}{1.2}{1.2}{$\jw{m}$}
+    \ncircle{unshaded}{(-.5,-2)}{.3}{270}{$S_+$}
+    \ncircle{unshaded}{(.5,-2)}{.3}{270}{$S_-$}
+%
+    \draw[decorate, decoration={complete sines, segment length=.2cm, amplitude=.1cm}] (-.9,-1.2) -- (.9,-1.2);
+    \draw[decorate, decoration={complete sines, segment length=.2cm, amplitude=.1cm}] (-.9,-1) -- (.9,-1);
+%
+    \node at (-.1,-.6) {\scriptsize{$m-2i-j$}}; 
+    \node at (.5,.6) {\scriptsize{$m-1$}}; 
+    \node at (.2,1.8) {\scriptsize{$m$}}; 
+    \node at (1,-1.5) {\scriptsize{$j$}}; 
+    \node at (1.4,-1.5) {\scriptsize{$i$}}; 
+    \node at (1.8,-.6) {\scriptsize{$1$}}; 
+    \node at (0,-1.8) {\scriptsize{$k_i$}}; 
+\end{tikzpicture}
 $$
 Certainly the identity term contributes, and the only place we can put a cup on top is the top right.
 Because the top right cup will result in an extra strand passing around the bottom of the diagram, no matter where we put a cap along the bottom of the expansion of the Jones-Wenzl idempotent, the total number of strands around the bottom cannot decrease. 
@@ -312,54 +427,54 @@ The coefficient of the following Temperley-Lieb diagram in the Jones-Wenzl idemp
 \end{tikzpicture}
 \right)
 & =
-(-1)^{m-a+1}\frac{[a+1]}{[m]}.
+\frac{[a+1]}{[m]}.
 \end{align*}
 \end{lem}
-
+\nn{Note we are using the signed convention, so $[2] = -q -q^{-1}$}
   
 Putting all this together, we obtain the formula
 \begin{align*}
 \rho(T_{i,j}) & =
 \truth{i = 0} T_{i, j + 1} \\
 & \qquad +
-\truth{i \neq 0} \textcolor{blue}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
+\truth{i \neq 0} \textcolor{blue}{ [i][m]^{-1}} T_{i,j-1} \\
 & \qquad +
-\truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
+\truth{j \neq 0}\textcolor{orange}{[i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
-\truth{i \neq 0}\textcolor{red}{(-1)^{i}  [m-i][m]^{-1}} T_{i, j + 1} \\
+\truth{i \neq 0}\textcolor{red}{  [m-i][m]^{-1}} T_{i, j + 1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j > (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 +m+ j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
+& \qquad \quad \times \textcolor{DarkGreen}{ [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j < (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
+& \qquad \quad \times \textcolor{DarkGreen}{ [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
 Happily, some simplifications occur here. In the second term, we can omit the $\truth{i\neq0}$ factor, since the quantum integer $[0]$ is zero. The first term (corresponding to the identity term in the expansion of the Jones-Wenzl idempotent) and the fourth term (corresponding to case \eqref{item:red}, a cap connecting the third and fourth multistrands) can be combined to give $(-1)^i [m-i][m]^{-1} T_{i,j+1}$. We have
 \begin{align*}
 \rho(T_{i,j}) & =
-(-1)^i[m-i][m]^{-1} T_{i, j + 1} \\
+[m-i][m]^{-1} T_{i, j + 1} \\
 & \qquad +
-\textcolor{blue}{(-1)^{m-i} [i][m]^{-1}} T_{i,j-1} \\
+\textcolor{blue}{ [i][m]^{-1}} T_{i,j-1} \\
 & \qquad +
-\truth{j \neq 0}\textcolor{orange}{(-1)^{m-i-j} [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
+\truth{j \neq 0}\textcolor{orange}{ [i+j][m]^{-1}} \left(\sigma_+^{-1} \sigma_-\right)^{\truth{k_i \leq n_+} \truth{k_i \leq n_-}} T_{i+1, j-1} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j > (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 +m +j} [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
+& \qquad \quad \times \textcolor{DarkGreen}{ [2i + j + (-m + n_+ - n_-)/2][m]^{-1}} T_{i+1,j-2} \\
 & \qquad +
 \truth{k_i \leq n_+} \truth{k_i \leq n_-}
 \truth{i+j < (m - n_+ + n_-)/2} \times \\
-& \qquad \quad \times \textcolor{DarkGreen}{(-1)^{(m + n_+ - n_-)/2 + j} [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
+& \qquad \quad \times \textcolor{DarkGreen}{ [j+ (m + n_+ - n_-)/2 ][m]^{-1}} T_{i+1,j}
 \end{align*}
 
 
 Writing $\cT_i = \Span \{ T_{i,j} \}_{0 \leq j < m- 2i}$, we can write $\rho \mid_{\cT_i} = \mu_i + \nu_i$, where
 \begin{align*}
 \mu_i :  \cT_i & \to \cT_i \\
-  T_{i,j} & \mapsto (-1)^i [m]^{-1} \left( [m-i] T_{i,j+1} + (-1)^{m}[i] T_{i,j-1}\right) \\
+  T_{i,j} & \mapsto  [m]^{-1} \left( [m-i] T_{i,j+1} + [i] T_{i,j-1}\right) \\
 \intertext{and}
 \nu_i : \cT_i & \to \cT_{i+1}.
 \end{align*}
@@ -374,7 +489,7 @@ $\mu_{i_0} X_{i_0} = \omega X_{i_0}$.
 \end{enumerate}
 
 In fact, $\mu_i$ is just a circulant matrix in this basis, and so has multiplicity free eigenvalues
-$$\lambda_r = (-1)^i[m]^{-1} \left([m-i] \zeta_{m-2i}^{-r} + (-1)^{m}[i] \zeta_{m-2i}^r\right),$$
+$$\lambda_r = [m]^{-1} \left([m-i] \zeta_{m-2i}^{-r} + [i] \zeta_{m-2i}^r\right),$$
 where $\zeta_{m-2i}$ is a primitive $(m-2i)$-th root of unity, with corresponding eigenvectors
 $$v_r = \left(1, \zeta_{m-2i}^r , \zeta_{m-2i}^{2r} , \ldots, \zeta_{m-2i}^{(m-2i-1)r} \right).$$
 
@@ -382,7 +497,7 @@ Clearly when $i = 0$, these eigenvalues are exactly the $m$-th roots of unity, e
 If $i > 0$, we claim that $\lambda_{r}$ is never an $m$-th root of unity; in fact they always have absolute value less than 1:
 \begin{align*}
 \lambda_{r} \overline{\lambda}_{r} 
- & = [m]^{-2}\left([m-i]^{2}+(-1)^{m}[m-i][i]\left(\zeta_{m-2i}^{-2r}+\zeta_{m-2i}^{2r}\right)+[i]^{2}\right) \\ 
+ & = [m]^{-2}\left([m-i]^{2}+[m-i][i]\left(\zeta_{m-2i}^{-2r}+\zeta_{m-2i}^{2r}\right)+[i]^{2}\right) \\ 
  & \le [m]^{-2}\left([m-i]+[i]\right)^{2} \\
  & < 1
 \end{align*}
@@ -404,6 +519,8 @@ X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 
 \nn{Can we sanity check the above formulas by finding eigenvectors separately for $\rho$ and for $\rho'$, and verifying they agree?}
 
+
+
 \nn{Can we make more explicit formulas for $X_{>0}$?}
 
 
@@ -412,20 +529,20 @@ X_{i+1} & = - (\mu_{i+1} - \zeta_m^r)^{-1} \nu_i X_i.
 When $n_+ = n_- = 2n$, we have
 \begin{align*}
 \nu_i(T_{i,j})
-& = (-1)^j[m]^{-1} \times\\
+& = [m]^{-1} \times\\
 & \quad \Bigg(
-\truth{j \neq 0}(-1)^{m-i} [i+j] \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
+\truth{j \neq 0} [i+j] \left(\sigma_+^{-1} \sigma_-\right) T_{i+1, j-1} \\
 & \qquad +
-\truth{i+j > m/2} (-1)^{m/2} [2i + j - m/2] T_{i+1,j-2} \\
+\truth{i+j > m/2} [2i + j - m/2] T_{i+1,j-2} \\
 & \qquad +
-\truth{i+j < m/2} (-1)^{m/2} [j+ m/2 ] T_{i+1,j} \Bigg)
+\truth{i+j < m/2} [j+ m/2 ] T_{i+1,j} \Bigg)
 \end{align*}
 and
 \begin{align*}
 \nu_0(T_{0,j})
-& = (-1)^j [m]^{-1} \times \\
+& = [m]^{-1} \times \\
 & \quad \Bigg(
-(-1)^{m} [j] \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
+ [j] \left(\sigma_+^{-1} \sigma_-\right) T_{1, j-1} \\
 & \qquad + \truth{j > m/2} (-1)^{m/2} [j- m/2] T_{1,j - 2} \\
 & \qquad + \truth{j < m/2} (-1)^{m/2} [j+ m/2] T_{1,j} \Bigg).
 \end{align*}
@@ -444,16 +561,15 @@ The eigenvectors described above for $\mu_i$ are orthogonal, so we can diagonali
 \mu_i = P D P^*
 \end{align*}
 where $D$ is diagonal with 
-$D_{\ell\ell} = (-1)^i [m]^{-1} \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell\right)$ and
+$D_{\ell\ell} = [m]^{-1} \left([m-i] \zeta_{m-2i}^{-\ell} + [i] \zeta_{m-2i}^\ell\right)$ and
 $P_{jj'} = (m-2i)^{-1/2} \zeta_{m-2i}^{jj'}$.
 We obtain
 \begin{align*}
-(\mu_i - z)^{-1}_{jj'} & = \frac{(-1)^i [m]}{(m-2i)} \sum_{\ell} \zeta_{m-2i}^{\ell(j-j')}  \left([m-i] \zeta_{m-2i}^{-\ell} + (-1)^{m}[i] \zeta_{m-2i}^\ell - (-1)^i [m] z\right)^{-1} \\
-...
+(\mu_i - z)^{-1}_{jj'} & = \frac{ [m]}{(m-2i)} \sum_{\ell} \zeta_{m-2i}^{\ell(j-j')}  \left([m-i] \zeta_{m-2i}^{-\ell} + [i] \zeta_{m-2i}^\ell - [m] z\right)^{-1}
 \end{align*}
-\nn{which I can't think of anything to do with...}
+
 \end{proof}
-\nn{Error in the above formula for resolvent, [m] out front should be in Numerator not denominator, because we've taken (Blah)^-1! Thats what we get for pulling things out front}
+
 
 We now consider $V$ an irreducible ATLJ submodule of some planar algebra $P$, and the ATLJ homomorphism $\psi: V\boxtimes V\rightarrow P$. Let $S$ denote a lowest weight generator of $V$, with weight $2n$ and rotational eigenvalue $\sigma$.
 
@@ -465,7 +581,33 @@ X_{\omega,i+1} & = - (\mu_{i+1} - \omega)^{-1} \nu_i X_{\omega,i} \\
 X_{\omega,1} & = - (\mu_{i+1} - \omega)^{-1}  ...
 \end{align*}
 
-\textbf{Super Transitivity obstruction????} It seems like our above work should yield $*^{n-1}1$ obstructions (no zeros), and in fact it looks like (preliminarily) we get $2n+2$ of them! (I think half are redundant since the two generators are equal in our planar algebra).
+Consider the case where $\cP_\bullet$ has $*1$ annular multiplicity sequence, so that $S$ is a $2n$ uncappable vector with \emph{one-click} rotational eigenvalue $\sigma$. 
+Let $V$ denote the annular representation corresponding to $S$. 
+We set $m=2n$, and examine the lowest weight eigenvectors $X_{\omega}$ in $(V\boxtimes V)_{m}$, where $X_{\omega}$ is a $2n$-th root of unity.  
+If all is right in the universe, then $\Psi(X_{\omega})=0$ for $\omega\neq \sigma$, where $\Psi: V\boxtimes V\rightarrow \cP_\bullet$ is the ATLJ intertwiner, canonically defined for planar algebras.
+
+We note that by supertransitivity, $\Psi(X^{\omega}_{i,j})=0$ for $i\ge 1$. 
+Let $\gamma$ be the real number that appears in the formula $S^{2}=\gamma S+TL$. 
+In terms of the branch factor $r$, $\gamma=\frac{\sqrt{r}-\sqrt{r}^{-1}}{\sqrt{[n+1]}}$.  
+
+Then we see that $\Psi(T_{0,j})=\gamma \sigma^{j} S$. 
+Furthermore, $X^{\omega}_{0,j}=\sum_{j}\omega^{-j} T_{0,j}$, hence
+
+$$\Psi(X^{\omega})=\Psi(X^{\omega}_{0})=\sum^{2n}_{j=0} (\sigma\omega^{-1})^{j}$$
+
+This sum is $0$ if and only if $\omega\ne \sigma$!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Obsolete}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Super Transitivity obstruction?} 
+
+It seems like our above work should yield $*^{n-1}1$ obstructions (no zeros), and in fact it looks like (preliminarily) we get $2n+2$ of them! (I think half are redundant since the two generators are equal in our planar algebra).
 
 The idea is as follows:
 
@@ -480,19 +622,19 @@ Could this give us supertransitivity obstructions, or are the above equations  $
 
 Lets do a computation,  in particular lets compute $R^{*}\psi(X_0)$.  First, we assume now we are in spherical subfactor-shaded land, (although it appears we get a much stronger obstruction for spherical non-shaded, as to be expected).  Then we have three parameters: $\gamma_{0}:=\gamma=Tr(S^{3})$,  $\gamma_{1}:=\check{\gamma}=Tr(\check{S}^{3})$, and $\sigma$.  In what follows, we interpret the $j$ in $\gamma_{j}$ mod $2$. For $0\le j\le n$, we have
 
-$$R^{*}\psi(T_{0,j})=(-1)^{j}\sigma^{j}\frac{[2n+2-j]}{[2n+2]} \gamma_{j+1}+(-1)^{n+j+1}\sigma^{j+1}\frac{[n+1-j]}{[2n+2]} \gamma_{j}$$
-$$+(-1)^{j}\sigma^{j-2}\frac{[j]}{[2n+2]} \gamma_{j+1}+(-1)^{n+j+1}\sigma^{j-1}\frac{[n+1+j]}{[2n+2]} \gamma_{j}$$
+$$R^{*}\psi(T_{0,j})=(-1)^{j}\sigma^{j}\frac{[2n+2-j]}{[2n+2]} \gamma_{j+1}+\sigma^{j+1}\frac{[n+1-j]}{[2n+2]} \gamma_{j}$$
+$$+\sigma^{j-2}\frac{[j]}{[2n+2]} \gamma_{j+1}+\sigma^{j-1}\frac{[n+1+j]}{[2n+2]} \gamma_{j}$$
 
 Even though there are special cases in the pictures, interpreting $[0]=0$ in fact leads to the above formula for all cases!  Now, recall that for a $2n+2$ root of unity $\omega$, $X_{0}=\sum^{2n+1}_{j=0} \omega^{-j}T_{0,j}$.  Furthermore, since $\sigma$ is a $2n^{th}$ root of unity, we see that $\psi(T_{0,j})=\psi(T_{0,j-n-1})$ for $j\ge n+1$.
 
 Thus 
 
 \begin{align*}
-R^{*}\psi(X_0) & = \frac{1}{[2n+2]} \sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[ (-1)^{j} \left(\sigma^{j}[2n+2-j]
+R^{*}\psi(X_0) & = \frac{1}{[2n+2]} \sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[  \left(\sigma^{j}[2n+2-j]
 +\sigma^{j-2}[j]\right) \gamma_{j+1}
 \right. \\
 & \qquad \quad
-\left.+(-1)^{n+j+1} \left( \sigma^{j+1}[n+1-j]+\sigma^{j-1}[n+1+j] \right)\gamma_{j+1}\right]
+\left. + \left( \sigma^{j+1}[n+1-j]+\sigma^{j-1}[n+1+j] \right)\gamma_{j+1}\right]
 \end{align*}
 
 \nn{All these formulas need to be checked, include pictures}
@@ -504,9 +646,9 @@ Now, to obtain our equation depending on $\omega$, we have
 \begin{align*}
 0 & = [2n+2]\left( a_{\omega, \sigma, \gamma, \check{\gamma}} R^{*}R+R^{*}\psi(X_0) \right) \\
   & = a_{\omega, \sigma, \gamma, \check{\gamma}}((q^{2n+2}+q^{-2n-2}-\sigma^{2}-\sigma^{-2})) \\
-  & \qquad + \sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[ (-1)^{j} \left(\sigma^{j}[2n+2-j] +\sigma^{j-2}[j]\right) \gamma_{j+1}
+  & \qquad + \sum^{n}_{j=0}(\omega^{-j}+\omega^{-j+n+1})\left[ \left(\sigma^{j}[2n+2-j] +\sigma^{j-2}[j]\right) \gamma_{j+1}
 \right. \\
- &  \qquad \quad + \left. (-1)^{n+j+1}\left( \sigma^{j+1}[n+1-j]+\sigma^{j-1}[n+1+j] \right)\gamma_{j}\right]
+ &  \qquad \quad + \left. \left( \sigma^{j+1}[n+1-j]+\sigma^{j-1}[n+1+j] \right)\gamma_{j}\right]
 \end{align*}
 
 
@@ -518,13 +660,11 @@ Notice that exchanging $\omega$ with $\omega^{n+1}$ gives the same equation, and
 
 
 
-\hrule
 
-\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Recovering Jones' quadratic tangles obstruction}
 
 \nn{some old stuff has been moved to obsolete/obsolete.tex}
-
-\nn{old stuff}
 
 
 
