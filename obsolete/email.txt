@@ -1,0 +1,73 @@
+Dear Corey, Dave,
+
+It seems that it's possible to say quite a lot about how tensor products
+decompose. I'm not entirely certain whether what I've worked out is obvious or
+interesting.
+
+Let's say we have generators (n1, w1), (n2, w2). Out of these we
+can build a zero box, by connecting the smaller box entirely to the larger
+box, then wrapping the remaining strings of the larger box around the back.
+Let's call this guy Z. (If n1 != n2, just sphericality tells us Z = 0, but
+let's not worry about that for now.) I propose that we just work with the
+relation that Z passes through a strand, which is certainly true if we're
+looking at a quotient inside an evaluable planar algebra. (An even weaker
+quotient, which sounds appealling but was harder to do calculations in, is
+just that ring(Z) = \delta Z.)
+
+So, let's see if we can compute V_(n1, w1) \otimes V_(n2, w2) / ~.
+
+Define T_s, for s negative, to be the tangle obtained by connecting up |s|
+strands between the generators. (When n1 != n2, interpret this appropriately;
+we want T_{(n1+n2)/2} = Z.) When s is non-negative just separate the
+two generators by s parallel strands. Note T_s is an n1+n2+2s box (I just
+count the numbers of strings; nothing in this is going to care about
+shadings, so there's no reason to go around dividing by two). Define T_{s,i}
+to be the rotation by i clicks of T_s, for 0 <= i < n1+n2+2s.
+
+Claim: the lowest weight vectors are in bijection with the T_{s,i}, in the
+sense that you can find a basis of lowest weight vectors
+
+    X_{s,i} = T_{s,i} + annular consequences of the T_{s' < s, j}
+
+I certainly haven't proved this, but I have a mathematica notebook (it's in
+the fusionatlas repository, /articles/quadratic/quadratic-tnagles.nb) that
+happily computes the coefficients. They are simple enough looking that I'd
+imagine one could just write out explicit formulas and verify that they are
+low weight vectors. The point here is just that in this quotient, all these
+diagrams are linear independent, so one never has to think about inner
+products; you identify low weight vectors just by setting all the coefficients
+of a capped element to zero. (Oh, and everything I've done so far assumes
+w1=w2=1, and I haven't thought about what happens otherwise; hopefully just
+yuckier formulas.)
+
+Alternatively, you can aim for a basis of rotational eigenvectors, in which
+case we get Y_{s,i} = \sum \zeta_N^ij T_{s,j} + annular consequences of lower
+terms, where N = n1+n2+2s, and Y_{s,i} has rotational eigenvalue \zeta_N^i.
+(That is, each rotational eigenvalue appears exactly once.)
+
+Said another way --- in this quotient, regardless of the values of n1 and n2,
+every irrep of the form V_{n,w} of ATLJ appears exactly once, just subject to
+the parity condition n = n1 + n2 (mod 2).
+
+What does this do for us, if anything? I hope a lot! Say we have two lowest
+weight vectors X and Y in a planar algebra (perhaps we have just one, with
+X=Y). Then this decomposition gives us a whole lot of explicit low weight
+vectors (if you're lowest weight in the quotient we're working in, you're
+lowest weight anywhere evaluable), which can either be zero or not. For
+example, say we have X=Y, the 2n-box in an (n-1)-supertransitive planar
+algebra with excess 1. Then X_{s,i} = 0 for s < -n, and X_{-n, i} = X for some
+i, with all the other X_{-n, j} = 0. If you know more about the annular
+multiplicities, you know more stuff vanishes.
+
+Of course I haven't done this, but I'd be a little surprised if, for example,
+Vaughan's 10 quadratic tangles equation doesn't drop out of this, assuming you
+can guess the pattern in the coefficients of the X_{s,i}. Okay, we'll see. :-)
+
+I've just arrived at Banff, and may be some combination of
+exhausted/overwhelmed by local stuff all week, but I'd love to talk about 
+this. Have a look at the mathematica notebook and see what you believe of it,
+perhaps. I think a very plausible thing to do is to look at the explicit
+formulas it can produce, and see if we can see the patterns.
+
+best regards,
+Scott
